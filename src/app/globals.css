@@ -2,3 +2,34 @@
 @layer theme, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --color-bg: #F8F6FB;
+  --color-white: #FFFFFF;
+  --color-band: #F0E6F8;
+  --color-bg-alt: #F0E6F8;
+  --color-ctaband: #F0E6F8;
+  --color-icon-bg: #EAD9F5;
+  --color-mint: #E0CCF0;
+  --color-mint-border: #D2B6E8;
+  --color-ctaband-border: #DEC8EC;
+  --color-line: #E6E0EE;
+  --color-line-2: #EDE6F4;
+  --color-brand-magenta: #E91E8C;
+  --color-brand-deep: #3D1578;
+  --color-brand-link: #7B1FA2;
+  --color-brand-on-dark: #FF4DB8;
+  --color-ink: #1A0B2E;
+  --color-ink-soft: #2A1640;
+  --color-body: #3D3550;
+  --color-secondary: #4A4260;
+  --color-muted: #6B6480;
+  --color-dark: #140820;
+  --color-on-dark: #F7F2FC;
+  --color-on-dark-2: #D4C6E8;
+  --color-on-dark-3: #E2D6F0;
+  --color-on-dark-muted: #A090B8;
+
+  --font-body: 'Urbanist', sans-serif;
+  --font-accent: 'Instrument Serif', serif;
+}
