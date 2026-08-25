@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import {
   ChevronDown,
@@ -8,8 +10,10 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
+import Script from "next/script";
 
 export default function MobileNav() {
+  const pathname = usePathname();
   return (
     <>
       <div className="nav-backdrop"></div>

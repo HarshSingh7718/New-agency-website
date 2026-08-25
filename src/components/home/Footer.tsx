@@ -1,5 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { Wrench, SearchCheck, Send, MapPin, Mail, Phone } from "lucide-react";
+import Script from "next/script";
 
 export default function Footer() {
   return (
