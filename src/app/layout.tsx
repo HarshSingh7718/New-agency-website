@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en-US" className="js">
       <head>
+        <meta name="apple-mobile-web-app-title" content="RapidGro" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
