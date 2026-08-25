@@ -1,46 +1,69 @@
-# RapidGroDigital — Agency Website
+# RapidGroDigital - Full Service Digital Marketing Agency
 
-RapidGroDigital built with **Next.js**, **TypeScript**, and **Tailwind CSS**.
+RapidGroDigital is a modern, responsive website built for a full-service digital marketing agency. The site showcases the agency's portfolio, services, client testimonials, and features a clean, high-performance UI tailored for maximum conversion and search visibility.
 
-Original production CSS, WebGL hero smoke, marquees, carousels, FAQ accordion, magnetic buttons, and section markup are preserved so layout, type, color, and motion match the live site.
+## Features
 
-## Stack
+- **Modern & Responsive UI**: Fully responsive across mobile, tablet, and desktop viewports, using a sophisticated design system.
+- **Custom Animations**: Smooth entry animations and micro-interactions powered by custom JavaScript and Intersection Observer.
+- **Dynamic Services Section**: Clear breakdown of specialized services like WordPress Development, Shopify Development, SaaS Applications, SEO, and more.
+- **Client Testimonials**: Verified feedback grid featuring an interactive marquee display.
+- **Optimized for Performance**: Built on Next.js with Server-Side Rendering (SSR) capabilities, providing an ultra-fast browsing experience.
 
-- Next.js 16 (App Router)
-- TypeScript
-- Tailwind CSS 4 (utilities only; site theme comes from `/public/css`)
-- Original site scripts (`hero-smoke.js`, `apart-steps.js`, `team.js`, `custom.js`)
+## Tech Stack
 
-## Getting started
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Library**: [React](https://reactjs.org/)
+- **Styling**: Vanilla CSS (modular design system with variables) & Tailwind CSS
+- **Icons**: [Lucide React](https://lucide.dev/) & [Iconify](https://iconify.design/)
+- **Typography**: [Urbanist](https://fonts.google.com/specimen/Urbanist) & [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif)
 
-```bash
-npm install
-npm run dev
+## Project Structure
+
+```text
+├── public/                 # Static assets, fonts, and custom scripts
+│   ├── css/                # Core stylesheets (theme, components, responsive)
+│   ├── js/                 # Custom animation scripts (custom.js, hero-smoke.js)
+│   └── images/             # Image assets
+├── src/
+│   ├── app/                # Next.js app routing (layout, page, contact)
+│   ├── components/
+│   │   └── home/           # Modular React components for the homepage (Hero, Services, CTA, Footer, etc.)
+│   └── lib/                # Utility functions and shared resources
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## Installation & Setup
 
-## Scripts
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/agency-website.git
+   cd agency-website
+   ```
 
-| Command        | Description              |
-| -------------- | ------------------------ |
-| `npm run dev`  | Start development server |
-| `npm run build`| Production build         |
-| `npm start`    | Run production server    |
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Project structure
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-```
-src/app/page.tsx          Home page (mirrored markup + scripts)
-src/app/contact/page.tsx  Contact page
-src/lib/home-body.ts      Full home HTML from production
-public/css/               Original theme & section styles
-public/js/                Hero smoke, team slider, site behaviour
-public/images/            Logo, team photos, portfolio shots
-```
+4. **Build for production**
+   ```bash
+   npm run build
+   npm start
+   ```
 
-## Notes
+## Design System
 
-- Fonts: Urbanist, Instrument Serif, Great Vibes (Google Fonts) — same as production.
-- Portfolio images are served locally under `/images/portfolio`.
-- The live site’s Blog nav points to `#journal`; that section is not present on the source homepage, so it is not invented here.
+The project relies heavily on a centralized design system located in `public/css/theme.css`. Modifying colors, typography, and spacing variables here will globally update the site's styling.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+Copyright © 2024 RapidGroDigital. All rights reserved.

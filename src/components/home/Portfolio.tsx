@@ -11,7 +11,7 @@ export default function Portfolio() {
           </h2>
           <p  className="body-text text-center mx-auto max-w-[680px]"
             style={{ color: "var(--c-body)" }}>
-            Explore high-impact web, ecommerce, and SaaS solutions we've
+            Explore high-impact web, ecommerce, and SaaS solutions we&apos;ve
             delivered for brands across industries.
           </p>
         </div>

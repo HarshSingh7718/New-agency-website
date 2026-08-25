@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import { ArrowUpRight, Plus } from "lucide-react";
 
 export default function FAQ() {

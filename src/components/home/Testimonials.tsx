@@ -1,5 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
-import Script from "next/script";
+
 
 export default function Testimonials() {
   return (
@@ -49,11 +49,11 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "I had the pleasure of working with the RapidGroDigital team,
+                &quot;I had the pleasure of working with the RapidGroDigital team,
                 and I must say the experience was excellent. Special thanks to
                 Gaurav, who never compromises on quality and ensures the work is
                 done exactly as required. They deliver top-quality results
-                within deadlines."
+                within deadlines.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">DV</span>
@@ -75,9 +75,9 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "Great working with the team, they helped me make my website
+                &quot;Great working with the team, they helped me make my website
                 live in just 5 days. They are helpful even after the project is
-                over."
+                over.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">AB</span>
@@ -99,10 +99,10 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "He was attentive, creative, and always open to feedback, which
+                &quot;He was attentive, creative, and always open to feedback, which
                 made the entire process smooth and enjoyable. His ability to
                 understand our vision and translate it into a clean, functional,
-                and beautifully designed website truly stood out."
+                and beautifully designed website truly stood out.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">FC</span>
@@ -124,9 +124,9 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "Gaurav stands out among the most talented WordPress developers
-                I have met, he's not only great at communicating, but also
-                executes to perfection. He knows his stuff really well."
+                &quot;Gaurav stands out among the most talented WordPress developers
+                I have met, he&apos;s not only great at communicating, but also
+                executes to perfection. He knows his stuff really well.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">JD</span>
@@ -148,11 +148,11 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "The team demonstrated a strong understanding of our business
+                &quot;The team demonstrated a strong understanding of our business
                 requirements and translated them into a clean, user-friendly,
                 and responsive website. What stood out most was their attention
                 to detail, quick turnaround time, and willingness to accommodate
-                our feedback."
+                our feedback.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">ND</span>
@@ -174,8 +174,8 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "Very professional and very hard working guys. Their commitment
-                to delivering excellence on time is truly remarkable."
+                &quot;Very professional and very hard working guys. Their commitment
+                to delivering excellence on time is truly remarkable.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">NY</span>
@@ -197,10 +197,10 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "Good people, excellent understanding, timely delivered the
+                &quot;Good people, excellent understanding, timely delivered the
                 project with topnotch perfections. First delivered frames
                 achieved 98% score on SEO parameter. Good work team, keep it
-                up."
+                up.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">DJ</span>
@@ -222,10 +222,10 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "The team completed our WordPress website in just 15 days, and
+                &quot;The team completed our WordPress website in just 15 days, and
                 honestly, there were almost no revisions required because they
                 got everything right the first time. The design is clean, fast,
-                mobile-friendly, and perfectly matches our brand."
+                mobile-friendly, and perfectly matches our brand.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">GP</span>
@@ -247,10 +247,10 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "Their team was professional, responsive, and truly understood
+                &quot;Their team was professional, responsive, and truly understood
                 our vision. They delivered a sleek, user-friendly site that
                 reflects our brand beautifully. The entire process was smooth,
-                and the result exceeded our expectations."
+                and the result exceeded our expectations.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">SN</span>
@@ -272,11 +272,11 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "His deep knowledge of website development, technical SEO, and
+                &quot;His deep knowledge of website development, technical SEO, and
                 performance optimization helped us create a fast, user-friendly
                 and search-engine-optimized website. What truly stands out is
                 his attention to detail, quick response time, and continuous
-                support even after project completion."
+                support even after project completion.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">SS</span>
@@ -298,10 +298,10 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "The team consistently achieves goals on time and their response
+                &quot;The team consistently achieves goals on time and their response
                 time is impressively quick whenever we need support. Their
                 WebCrawl tool is truly a great addition — simple to use,
-                insightful, and very effective for technical SEO analysis."
+                insightful, and very effective for technical SEO analysis.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">ZS</span>
@@ -323,8 +323,8 @@ export default function Testimonials() {
                 </span>
               </div>
               <p className="testi-h-card__text">
-                "Very satisfied with GSUITE's Gmail service, clean and
-                professional work."
+                &quot;Very satisfied with GSUITE&apos;s Gmail service, clean and
+                professional work.&quot;
               </p>
               <div className="testi-h-card__author">
                 <span className="testi-h-card__avatar">MC</span>
