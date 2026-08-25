@@ -11,7 +11,7 @@ export default function Footer() {
           rapidgrodigital
         </span>
         <div className="top">
-          <a className="footer-email" href="mailto:rapidgrodigitalforyou@gmail.com">
+          <a className="footer-email" style={{ fontSize: "medium" }} href="mailto:rapidgrodigitalforyou@gmail.com">
             rapidgrodigitalforyou@gmail.com
           </a>
           <div className="footer-socials">
@@ -28,10 +28,12 @@ export default function Footer() {
               <iconify-icon icon="simple-icons:instagram"></iconify-icon>
             </a>
             <a
-              href="https://in.pinterest.com/gap3agency/"
-              aria-label="Pinterest"
+              href="#"
+              aria-label="Twitter"
+              target="_blank"
+              rel="noopener"
             >
-              <iconify-icon icon="simple-icons:pinterest"></iconify-icon>
+              <iconify-icon icon="simple-icons:twitter"></iconify-icon>
             </a>
           </div>
         </div>
@@ -51,31 +53,26 @@ export default function Footer() {
                 id="menu-item-426"
                 className="menu-item menu-item-type-custom menu-item-object-custom menu-item-426"
               >
-                <a href="#">About</a>
+                <a href="/#services">Services</a>
               </li>
               <li
                 id="menu-item-427"
                 className="menu-item menu-item-type-custom menu-item-object-custom menu-item-427"
               >
-                <a href="#">Services</a>
+                <a href="/#work">Work</a>
               </li>
               <li
                 id="menu-item-428"
                 className="menu-item menu-item-type-custom menu-item-object-custom menu-item-428"
               >
-                <a href="#">Work</a>
+                <a href="/#team">About</a>
               </li>
-              <li
-                id="menu-item-656"
-                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-656"
-              >
-                <a href="#">Partners</a>
-              </li>
+             
               <li
                 id="menu-item-430"
                 className="menu-item menu-item-type-custom menu-item-object-custom menu-item-430"
               >
-                <a href="#">Blog</a>
+                <a href="/#testimonials">Our clients</a>
               </li>
               <li
                 id="menu-item-431"
@@ -87,79 +84,15 @@ export default function Footer() {
           </div>
           <div className="footer-col">
             <h4>Services</h4>
-            <a href="#">Hire WordPress Developer</a>
-            <a href="#">Hire Shopify Developer</a>
-            <a href="#">Custom SaaS Applications</a>
-            <a href="#">Search Engine Optimization</a>
-            <a href="#">Social Media Marketing</a>
-            <a href="#">WooCommerce Development</a>
-            <a href="#">Webflow Development</a>{" "}
+            <a href="/contact">Hire WordPress Developer</a>
+            <a href="/contact">Hire Shopify Developer</a>
+            <a href="/contact">Custom SaaS Applications</a>
+            <a href="/contact">Search Engine Optimization</a>
+            <a href="/contact">Social Media Marketing</a>
+            <a href="/contact">WooCommerce Development</a>
+            <a href="/contact">Webflow Development</a>{" "}
           </div>
-          <div className="footer-col">
-            <h4>Products</h4>
-            <a
-              className="footer-prod"
-              href="https://wbiz.in/"
-              target="_blank"
-              rel="noopener"
-            >
-              <span className="p-ico">
-                <iconify-icon icon="simple-icons:whatsapp"></iconify-icon>
-              </span>
-              <span>
-                <span className="p-t">WBIZ</span>
-                <span className="p-d">
-                  WhatsApp automation &amp; business messaging
-                </span>
-              </span>
-            </a>
-            <a
-              className="footer-prod"
-              href="https://mytoolstudio.com/"
-              target="_blank"
-              rel="noopener"
-            >
-              <span className="p-ico">
-                <Wrench></Wrench>
-              </span>
-              <span>
-                <span className="p-t">MyToolStudio</span>
-                <span className="p-d">
-                  Free online tools for teams &amp; creators
-                </span>
-              </span>
-            </a>
-            <a
-              className="footer-prod"
-              href="https://mytoolstudio.com/tools/site-audit/"
-              target="_blank"
-              rel="noopener"
-            >
-              <span className="p-ico">
-                <SearchCheck></SearchCheck>
-              </span>
-              <span>
-                <span className="p-t">Site Audit</span>
-                <span className="p-d">
-                  Instant website health &amp; SEO check
-                </span>
-              </span>
-            </a>
-            <a
-              className="footer-prod"
-              href="https://mytoolstudio.com/tools/file-transfer/"
-              target="_blank"
-              rel="noopener"
-            >
-              <span className="p-ico">
-                <Send></Send>
-              </span>
-              <span>
-                <span className="p-t">File Transfer</span>
-                <span className="p-d">Send large project files securely</span>
-              </span>
-            </a>
-          </div>
+
           <div className="footer-col">
             <h4>Contact</h4>
             <a
