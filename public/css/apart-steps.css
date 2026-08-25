@@ -1,6 +1,7 @@
 .rg-apart {
   background: var(--c-bg);
   padding: clamp(72px, 10vw, 110px) 0;
+  font-family: var(--font-body);
 }
 
 .rg-apart .container {

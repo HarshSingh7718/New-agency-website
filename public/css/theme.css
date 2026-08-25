@@ -595,7 +595,8 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
 
 /* ===================== 31. FOOTER (dark, sticky) ===================== */
 .site-footer { position: sticky; bottom: 0; z-index: 0; background: var(--c-ink); }
-.site-footer .in { max-width: var(--container); margin: 0 auto; padding: 40px var(--gutter) 30px; display: flex; flex-direction: column; }
+.site-footer .in { max-width: var(--container); margin: 0 auto; padding: 40px var(--gutter) 30px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.footer-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-body); font-size: clamp(100px, 12vw, 200px); font-weight: 800; text-transform: lowercase; color: rgba(255, 255, 255, 0.04); white-space: nowrap; pointer-events: none; user-select: none; z-index: 0; letter-spacing: -0.02em; }
 .site-footer .top { display: flex; align-items: center; justify-content: space-between; gap: 40px; border-bottom: 1px solid var(--c-line-dark); padding: 6px 0 34px; flex-wrap: wrap; }
 .footer-email { font-size: 46px; font-weight: 700; letter-spacing: -0.03em; color: var(--c-on-dark); }
 .footer-email:hover { color: var(--c-green-on-dark); }

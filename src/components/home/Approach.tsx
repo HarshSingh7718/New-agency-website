@@ -8,9 +8,9 @@ export default function Approach() {
             04 <span>Steps</span>
           </span>
         </div>
-        <h2 className="rg-apart__title reveal" id="apart-h">
-          What truly sets us
-          <span className="accent">apart from the rest.</span>
+        <h2 className="heading mb-12 reveal" id="apart-h">
+          What truly sets us <br />
+          <span className="serif">apart from the rest.</span>
         </h2>
         <div
           className="rg-apart__track reveal"

@@ -7,9 +7,10 @@ export default function Portfolio() {
         <div className="rg-portfolio__head reveal">
           <h2 id="work-h">
             Our success stories showcasing{" "}
-            <span className="accent">innovation in action</span>
+            <span className="serif">innovation in action.</span>
           </h2>
-          <p>
+          <p  className="body-text text-center mx-auto max-w-[680px]"
+            style={{ color: "var(--c-body)" }}>
             Explore high-impact web, ecommerce, and SaaS solutions we've
             delivered for brands across industries.
           </p>

@@ -7,9 +7,12 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="in">
+        <span className="footer-watermark" aria-hidden="true">
+          rapidgrodigital
+        </span>
         <div className="top">
-          <a className="footer-email" href="mailto:connect@rapidgrodigital.com">
-            connect@rapidgrodigital.com
+          <a className="footer-email" href="mailto:rapidgrodigitalforyou@gmail.com">
+            rapidgrodigitalforyou@gmail.com
           </a>
           <div className="footer-socials">
             <a
@@ -173,14 +176,14 @@ export default function Footer() {
             </a>
             <a
               className="footer-contact"
-              href="mailto:connect@rapidgrodigital.com"
+              href="mailto:rapidgrodigitalforyou@gmail.com"
             >
               <Mail></Mail>
-              <span>connect@rapidgrodigital.com</span>
+              <span>rapidgrodigitalforyou@gmail.com</span>
             </a>
             <a className="footer-contact" href="tel:+919428258943">
               <Phone></Phone>
-              <span>094282 58943</span>
+              <span>7292854317</span>
             </a>
           </div>
         </div>
@@ -195,14 +198,8 @@ export default function Footer() {
             ></Image>
           </span>
           <span className="footer-copy">
-            © 2026 RapidGroDigital. | Recognized by{" "}
-            <a
-              href="https://www.designrush.com/agency/website-design-development"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              DesignRush
-            </a>
+            &copy; 2024 RapidGroDigital. All rights reserved.
+           
           </span>
           <span className="footer-legal">
             <a href="#">Privacy</a>

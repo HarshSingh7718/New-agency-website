@@ -119,7 +119,7 @@ export default function FAQ() {
             </div>
           </article>
 
-          <article className="faq-item">
+          {/* <article className="faq-item">
             <button
               className="faq-item__header"
               type="button"
@@ -141,9 +141,9 @@ export default function FAQ() {
                 and feature enhancements.
               </p>
             </div>
-          </article>
+          </article> */}
 
-          <article className="faq-item">
+          {/* <article className="faq-item">
             <button
               className="faq-item__header"
               type="button"
@@ -165,7 +165,7 @@ export default function FAQ() {
                 deliverables.
               </p>
             </div>
-          </article>
+          </article> */}
         </div>
       </div>
     </section>
