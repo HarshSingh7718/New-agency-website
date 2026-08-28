@@ -2,7 +2,8 @@
 
 import { FormEvent, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Bot, MessageCircle, Send, Sparkles, X } from "lucide-react";
+import Image from "next/image";
+import { Bot, MessageCircle, Send, X } from "lucide-react";
 
 const initialSuggestedReplies = [
   "What services do you offer?",
@@ -163,7 +164,7 @@ export default function AgencyChatbot() {
           <header className="agency-chat__header">
             <div className="agency-chat__identity">
               <span className="agency-chat__avatar" aria-hidden="true">
-                <Sparkles size={18} />
+                <Image src="/images/Agency-logo-bg-removed.png" alt="RapidGro logo" width={45} height={45} />
               </span>
               <div>
                 <strong>RapidGro AI</strong>
