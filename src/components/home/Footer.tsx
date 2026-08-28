@@ -114,7 +114,7 @@ export default function Footer() {
               <Mail></Mail>
               <span>rapidgrodigitalforyou@gmail.com</span>
             </a>
-            <a className="footer-contact" href="tel:+919428258943">
+            <a className="footer-contact" href="tel:+917292854317">
               <Phone></Phone>
               <span>7292854317</span>
             </a>
@@ -131,7 +131,7 @@ export default function Footer() {
             ></Image>
           </span>
           <span className="footer-copy">
-            &copy; 2024 RapidGroDigital. All rights reserved.
+            &copy; 2026 RapidGroDigital. All rights reserved.
            
           </span>
           <span className="footer-legal">

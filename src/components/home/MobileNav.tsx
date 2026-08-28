@@ -99,11 +99,11 @@ export default function MobileNav() {
         </nav>{" "}
         <div className="m-contact">
           <span className="m-label">Get in touch</span>
-          <a href="mailto:connect@rapidgrodigital.com">
-            <Mail></Mail>connect@rapidgrodigital.com
+          <a href="mailto:rapidgrodigitalforyou@gmail.com">
+            <Mail></Mail>rapidgrodigitalforyou@gmail.com
           </a>
-          <a href="tel:+919428258943">
-            <Phone></Phone>094282 58943
+          <a href="tel:+917292854317">
+            <Phone></Phone>072928 54317
           </a>
         </div>
         <div className="m-socials">
