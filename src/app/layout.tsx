@@ -1,13 +1,23 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import AgencyChatbot from "@/components/chat/AgencyChatbot";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Full Service Digital Marketing Agency | RapidGroDigital",
+  title: {
+    default: "Full Service Digital Marketing Agency | RapidGroDigital",
+    template: "%s | RapidGroDigital",
+  },
   description:
     "RapidGroDigital is a full service digital marketing agency. Websites, ecommerce and SEO built for traffic and leads.",
   icons: {
     icon: "/images/Agency-logo-bg-removed.png",
+  },
+  openGraph: {
+    type: "website",
+    title: "RapidGroDigital",
+    description:
+      "Websites, ecommerce, SaaS and digital marketing built for growth.",
   },
 };
 
@@ -50,6 +60,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         {children}
+        <AgencyChatbot />
       </body>
     </html>
   );

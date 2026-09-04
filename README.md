@@ -56,6 +56,10 @@ RapidGroDigital is a modern, responsive website built for a full-service digital
    npm start
    ```
 
+## Contact Form & AI Chatbot
+
+The project includes a Resend-first contact backend with Gmail/Nodemailer fallback and a Groq-powered agency chatbot with context-aware suggested replies.
+
 ## Design System
 
 The project relies heavily on a centralized design system located in `public/css/theme.css`. Modifying colors, typography, and spacing variables here will globally update the site's styling.
@@ -66,4 +70,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-Copyright © 2024 RapidGroDigital. All rights reserved.
+Copyright © 2026 RapidGroDigital. All rights reserved.
