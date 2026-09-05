@@ -3,6 +3,50 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+/* ===================== SCROLL REVEAL ANIMATIONS ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-img {
+  opacity: 0;
+  transform: scale(0.97) translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-img.is-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-left.is-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-right.is-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-d1 { transition-delay: 0.1s !important; }
+.reveal-d2 { transition-delay: 0.2s !important; }
+.reveal-d3 { transition-delay: 0.3s !important; }
+.reveal-d4 { transition-delay: 0.4s !important; }
+.reveal-d5 { transition-delay: 0.5s !important; }
+
+
 @theme {
   --color-bg: #F8F6FB;
   --color-white: #FFFFFF;
@@ -101,11 +145,13 @@
 }
 
 .agency-chat__launcher {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 9px;
-  min-height: 48px;
-  padding: 0 18px;
+  justify-content: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 26px;
   border: 0;
   border-radius: 999px;
   background: var(--c-green-deep);
@@ -113,7 +159,7 @@
   box-shadow: 0 18px 48px rgba(20, 8, 32, 0.24);
   cursor: pointer;
   font: inherit;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 

@@ -277,13 +277,20 @@ export default function AgencyChatbot() {
 
       <button
         type="button"
-        className="agency-chat__launcher"
+        className="agency-chat__launcher overflow-hidden group relative hover:!bg-[var(--c-ink)] transition-colors duration-300"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         aria-label={open ? "Close AI assistant" : "Open AI assistant"}
+        data-magnetic
       >
-        {open ? <X size={22} /> : <MessageCircle size={23} />}
-        {!open && <span>Ask RapidGro</span>}
+        <div className="flex items-center gap-2 transition-transform duration-300 group-hover:-translate-y-14">
+          {open ? <X size={24} /> : <MessageCircle size={24} />}
+          {!open && <span>Ask RapidGro</span>}
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center gap-2 transition-transform duration-300 translate-y-14 group-hover:translate-y-0">
+          {open ? <X size={24} /> : <MessageCircle size={24} />}
+          {!open && <span>Ask RapidGro</span>}
+        </div>
       </button>
     </div>
   );

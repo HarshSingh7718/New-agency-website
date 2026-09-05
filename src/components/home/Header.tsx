@@ -28,7 +28,7 @@ export default function Header() {
             Home
           </a>
           <div className="has-children">
-            <a href="/#team" className="" aria-haspopup="true">
+            <a href="/about" className={pathname === "/about" ? "is-active" : ""} aria-haspopup="true">
               About{" "}
               <svg
                 width="13"
