@@ -16,25 +16,18 @@ export default function Footer() {
           </a>
           <div className="footer-socials">
             <a
-              href="https://www.linkedin.com/company/gap3agency/"
+              href="https://www.linkedin.com/in/lucky-kumar-62b722434?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
               aria-label="LinkedIn"
             >
               <iconify-icon icon="simple-icons:linkedin"></iconify-icon>
             </a>
             <a
-              href="https://www.instagram.com/gap3agency/"
+              href="https://www.instagram.com/rapidgrodigital?stkn=MTY4enptcnZnb2hwdg=="
               aria-label="Instagram"
             >
               <iconify-icon icon="simple-icons:instagram"></iconify-icon>
             </a>
-            <a
-              href="#"
-              aria-label="Twitter"
-              target="_blank"
-              rel="noopener"
-            >
-              <iconify-icon icon="simple-icons:twitter"></iconify-icon>
-            </a>
+
           </div>
         </div>
         <div className="footer-cols">
