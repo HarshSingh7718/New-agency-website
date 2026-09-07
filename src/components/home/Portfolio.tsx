@@ -18,28 +18,28 @@ export default function Portfolio() {
         <div className="rg-portfolio__grid">
           <a
             className="rg-portfolio__card reveal is-ext"
-            href="https://bigfatmarketing.in"
+            href="https://med-intel-ai-16.vercel.app/"
             target="_blank"
             rel="noopener"
-            aria-label="Big Fat Marketing — Marketing Agency"
+            aria-label="MedIntel — Healthcare AI"
           >
             <div className="rg-portfolio__scene">
               <Image
-                src="/images/portfolio/big-fat-marketing-agency-website-design-1.png"
-                alt="Big Fat Marketing project preview"
+                src="/images/portfolio/med-intel.png"
+                alt="MedIntel project preview"
                 loading="lazy"
                 decoding="async"
                 width="500"
                 height="500"
               ></Image>
             </div>
-            <span className="rg-portfolio__brand">Big Fat Marketing</span>
+            <span className="rg-portfolio__brand">MedIntel</span>
             <div className="rg-portfolio__hover">
               <span className="rg-portfolio__icon" aria-hidden={true}>
                 ↗
               </span>
-              <h3>Big Fat Marketing</h3>
-              <span className="rg-portfolio__tag">Marketing Agency</span>
+              <h3>MedIntel</h3>
+              <span className="rg-portfolio__tag">Healthcare AI</span>
             </div>
           </a>
 

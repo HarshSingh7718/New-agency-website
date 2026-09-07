@@ -196,7 +196,13 @@
 
 
 @media (max-width: 768px) {
-  :root { --gutter: 18px; }
+  :root { --gutter: 18px; --header-h: 64px; }
+  
+  /* Decrease mobile navbar height */
+  .site-header .bar { padding: 8px var(--gutter); }
+  .brand-logo { height: 42px; }
+  .burger { width: 42px; height: 42px; }
+  .burger span { width: 22px; }
 
   /* equal top and bottom padding on every content section */
   .section, .section.tight, .section.tight-bottom { padding-block: 60px; }
