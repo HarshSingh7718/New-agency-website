@@ -91,6 +91,58 @@
   flex-direction: column;
 }
 
+/* Animations for Team Header */
+.team-header__left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.team-header__left.animate-on-scroll {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animations for Team Card Image */
+.team-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 8/10;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.team-card:nth-child(1) .team-card__image-wrapper { transition-delay: 0.1s; }
+.team-card:nth-child(2) .team-card__image-wrapper { transition-delay: 0.2s; }
+.team-card:nth-child(3) .team-card__image-wrapper { transition-delay: 0.3s; }
+.team-card:nth-child(4) .team-card__image-wrapper { transition-delay: 0.4s; }
+
+.team-card__image-wrapper.animate-on-scroll {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animations for Team Card Text */
+.team-card__info {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.team-card:nth-child(1) .team-card__info { transition-delay: 0.2s; }
+.team-card:nth-child(2) .team-card__info { transition-delay: 0.3s; }
+.team-card:nth-child(3) .team-card__info { transition-delay: 0.4s; }
+.team-card:nth-child(4) .team-card__info { transition-delay: 0.5s; }
+
+.team-card__info.animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .team-card:hover {
   transform: translateY(-8px);
   border-color: rgba(255, 77, 184, 0.4);

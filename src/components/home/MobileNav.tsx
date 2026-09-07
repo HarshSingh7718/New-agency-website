@@ -41,15 +41,9 @@ export default function MobileNav() {
           <a href="/" className={pathname === "/" ? "is-active" : ""}>
             <span className="i">01</span>Home
           </a>
-          <div className={`m-item-sub ${pathname.startsWith("/about") ? "is-active" : ""}`}>
-            <button className="m-sub-btn" type="button" aria-expanded={false}>
-              <span className="i">02</span>About
-              <ChevronDown className="m-chev" aria-hidden={true}></ChevronDown>
-            </button>
-            <div className="m-sub">
-              <a href="/#work">Areas We Serve</a>
-            </div>
-          </div>
+          <a href="/about" className={pathname === "/about" ? "is-active" : ""}>
+            <span className="i">02</span>About
+          </a>
           <div className="m-item-sub">
             <button className="m-sub-btn" type="button" aria-expanded={false}>
               <span className="i">03</span>Services

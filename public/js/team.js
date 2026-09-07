@@ -78,5 +78,20 @@
     // Initial state check
     // Wait a tiny bit for rendering/sizing calculations
     setTimeout(updateButtonStates, 100);
+
+    // Intersection Observer for scroll animations
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-on-scroll');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    var animateElements = doc.querySelectorAll('.team-card__image-wrapper, .team-card__info, .team-header__left');
+    animateElements.forEach(function(el) {
+      observer.observe(el);
+    });
   });
 })();

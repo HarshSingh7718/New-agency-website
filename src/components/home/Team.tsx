@@ -79,21 +79,44 @@ export default function Team() {
               <div className="team-card__image-wrapper">
                 <Image
                   src="/images/nishu.jpg"
-                  alt="Prachi Baitule, Quality Analyst"
+                  alt="Bhavya Kumari, HR"
                   loading="lazy"
                   width="500"
                   height="500"
                 ></Image>
                 <button
                   className="team-card__play"
-                  aria-label="Play introduction video for Prachi Baitule"
+                  aria-label="Play introduction video for Bhavya Kumari"
                 >
                   <Play></Play>
                 </button>
               </div>
               <div className="team-card__info">
-                <span className="team-card__role">Bhavya Kumari </span>
-                <h3 className="team-card__name">Maneging Director</h3>
+                <span className="team-card__role">HR</span>
+                <h3 className="team-card__name">Bhavya Kumari</h3>
+              </div>
+            </div>
+
+            {/**/}
+            <div className="team-card">
+              <div className="team-card__image-wrapper">
+                <Image
+                  src="/images/raushan.png"
+                  alt="Raushan, Marketing Director"
+                  loading="lazy"
+                  width="500"
+                  height="500"
+                ></Image>
+                <button
+                  className="team-card__play"
+                  aria-label="Play introduction video for Raushan"
+                >
+                  <Play></Play>
+                </button>
+              </div>
+              <div className="team-card__info">
+                <span className="team-card__role">Marketing Director</span>
+                <h3 className="team-card__name">Raushan</h3>
               </div>
             </div>
           </div>
