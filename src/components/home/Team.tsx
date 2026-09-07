@@ -101,22 +101,22 @@ export default function Team() {
             <div className="team-card">
               <div className="team-card__image-wrapper">
                 <Image
-                  src="/images/raushan.png"
-                  alt="Raushan, Marketing Director"
+                  src="/images/Divyanshu-Shekhar.png"
+                  alt="Divyanshu Shekhar, Marketing Director"
                   loading="lazy"
                   width="500"
                   height="500"
                 ></Image>
                 <button
                   className="team-card__play"
-                  aria-label="Play introduction video for Raushan"
+                  aria-label="Play introduction video for Divyanshu Shekhar"
                 >
                   <Play></Play>
                 </button>
               </div>
               <div className="team-card__info">
                 <span className="team-card__role">Marketing Director</span>
-                <h3 className="team-card__name">Raushan</h3>
+                <h3 className="team-card__name">Divyanshu Shekhar</h3>
               </div>
             </div>
           </div>
