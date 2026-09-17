@@ -9,7 +9,7 @@ export default function Portfolio() {
             Our success stories showcasing{" "}
             <span className="serif">innovation in action.</span>
           </h2>
-          <p  className="body-text text-center mx-auto max-w-[680px]"
+          <p className="body-text text-center mx-auto max-w-[680px]"
             style={{ color: "var(--c-body)" }}>
             Explore high-impact web, ecommerce, and SaaS solutions we've
             delivered for brands across industries.
@@ -45,181 +45,31 @@ export default function Portfolio() {
 
           <a
             className="rg-portfolio__card reveal is-ext"
-            href="https://blueinberry.com"
+            href="https://www.physicswallah.in/?m=1"
             target="_blank"
             rel="noopener"
-            aria-label="Blue In Berry — Food &amp; Hospitality"
+            aria-label="Physics Wallah — Education"
           >
             <div className="rg-portfolio__scene">
               <Image
-                src="/images/portfolio/blue-in-berry-ice-cream-website-design.png"
-                alt="Blue In Berry project preview"
+                src="/images/portfolio/physics-wallah.png"
+                alt="Physics Wallah project preview"
                 loading="lazy"
                 decoding="async"
                 width="500"
                 height="500"
               ></Image>
             </div>
-            <span className="rg-portfolio__brand">Blue In Berry</span>
+            <span className="rg-portfolio__brand">Physics Wallah</span>
             <div className="rg-portfolio__hover">
               <span className="rg-portfolio__icon" aria-hidden={true}>
                 ↗
               </span>
-              <h3>Blue In Berry</h3>
-              <span className="rg-portfolio__tag">Food &amp; Hospitality</span>
+              <h3>Physics Wallah</h3>
+              <span className="rg-portfolio__tag">Education</span>
             </div>
           </a>
-
-          <a
-            className="rg-portfolio__card reveal"
-            href="#"
-            aria-label="Lumitec Consulting — Corporate Consulting"
-          >
-            <div className="rg-portfolio__scene">
-              <Image
-                src="/images/portfolio/lumitec-consulting-website-design.png"
-                alt="Lumitec Consulting project preview"
-                loading="lazy"
-                decoding="async"
-                width="500"
-                height="500"
-              ></Image>
-            </div>
-            <span className="rg-portfolio__brand">Lumitec Consulting</span>
-            <div className="rg-portfolio__hover">
-              <span className="rg-portfolio__icon" aria-hidden={true}>
-                ↗
-              </span>
-              <h3>Lumitec Consulting</h3>
-              <span className="rg-portfolio__tag">Corporate Consulting</span>
-            </div>
-          </a>
-
-          <a
-            className="rg-portfolio__card reveal"
-            href="#"
-            aria-label="Derma Energy — Ecommerce"
-          >
-            <div className="rg-portfolio__scene">
-              <Image
-                src="/images/portfolio/derma-energy-skincare-ecommerce-website-design.png"
-                alt="Derma Energy project preview"
-                loading="lazy"
-                decoding="async"
-                width="500"
-                height="500"
-              ></Image>
-            </div>
-            <span className="rg-portfolio__brand">Derma Energy</span>
-            <div className="rg-portfolio__hover">
-              <span className="rg-portfolio__icon" aria-hidden={true}>
-                ↗
-              </span>
-              <h3>Derma Energy</h3>
-              <span className="rg-portfolio__tag">Ecommerce</span>
-            </div>
-          </a>
-
-          <a
-            className="rg-portfolio__card reveal"
-            href="#"
-            aria-label="One Bill — Fintech App"
-          >
-            <div className="rg-portfolio__scene">
-              <Image
-                src="/images/portfolio/one-bill.webp"
-                alt="One Bill project preview"
-                loading="lazy"
-                decoding="async"
-                width="500"
-                height="500"
-              ></Image>
-            </div>
-            <span className="rg-portfolio__brand">One Bill</span>
-            <div className="rg-portfolio__hover">
-              <span className="rg-portfolio__icon" aria-hidden={true}>
-                ↗
-              </span>
-              <h3>One Bill</h3>
-              <span className="rg-portfolio__tag">Fintech App</span>
-            </div>
-          </a>
-
-          <a
-            className="rg-portfolio__card reveal"
-            href="#"
-            aria-label="Faceluxe — Beauty &amp; Retail"
-          >
-            <div className="rg-portfolio__scene">
-              <Image
-                src="/images/portfolio/faceluxe.webp"
-                alt="Faceluxe project preview"
-                loading="lazy"
-                decoding="async"
-                width="500"
-                height="500"
-              ></Image>
-            </div>
-            <span className="rg-portfolio__brand">Faceluxe</span>
-            <div className="rg-portfolio__hover">
-              <span className="rg-portfolio__icon" aria-hidden={true}>
-                ↗
-              </span>
-              <h3>Faceluxe</h3>
-              <span className="rg-portfolio__tag">Beauty &amp; Retail</span>
-            </div>
-          </a>
-
-          <a
-            className="rg-portfolio__card reveal"
-            href="#"
-            aria-label="BuddyGo — Mobile App"
-          >
-            <div className="rg-portfolio__scene">
-              <Image
-                src="/images/portfolio/buddygo.webp"
-                alt="BuddyGo project preview"
-                loading="lazy"
-                decoding="async"
-                width="500"
-                height="500"
-              ></Image>
-            </div>
-            <span className="rg-portfolio__brand">BuddyGo</span>
-            <div className="rg-portfolio__hover">
-              <span className="rg-portfolio__icon" aria-hidden={true}>
-                ↗
-              </span>
-              <h3>BuddyGo</h3>
-              <span className="rg-portfolio__tag">Mobile App</span>
-            </div>
-          </a>
-
-          <a
-            className="rg-portfolio__card reveal"
-            href="#"
-            aria-label="Uni Web Apps — SaaS Platform"
-          >
-            <div className="rg-portfolio__scene">
-              <Image
-                src="/images/portfolio/uni-web-apps.webp"
-                alt="Uni Web Apps project preview"
-                loading="lazy"
-                decoding="async"
-                width="500"
-                height="500"
-              ></Image>
-            </div>
-            <span className="rg-portfolio__brand">Uni Web Apps</span>
-            <div className="rg-portfolio__hover">
-              <span className="rg-portfolio__icon" aria-hidden={true}>
-                ↗
-              </span>
-              <h3>Uni Web Apps</h3>
-              <span className="rg-portfolio__tag">SaaS Platform</span>
-            </div>
-          </a>
-        </div>
+          </div>
         <div className="rg-portfolio__foot reveal">
           <a className="btn dark" href="#" data-magnetic>
             View all projects <span className="arrow">↗</span>
@@ -229,3 +79,10 @@ export default function Portfolio() {
     </section>
   );
 }
+
+
+
+
+
+
+        
