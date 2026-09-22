@@ -48,11 +48,11 @@ export default function FAQ() {
             </div>
           </article>
 
-          <article className="faq-item is-open">
+          <article className="faq-item">
             <button
               className="faq-item__header"
               type="button"
-              aria-expanded={true}
+              aria-expanded={false}
             >
               <span className="faq-item__num">02</span>
               <h3 className="faq-item__question">
