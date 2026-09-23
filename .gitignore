@@ -45,3 +45,9 @@ _mirror/
 _verify/
 public/home-body.html
 
+AGENTS.md
+CLAUDE.md
+.gemini/
+.agents/
+.cursorrules
+
