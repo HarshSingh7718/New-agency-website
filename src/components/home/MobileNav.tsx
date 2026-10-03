@@ -132,7 +132,9 @@ export default function MobileNav() {
               <a href="/contact">Payment Gateway App</a>
             </div>
           </div>
-
+          <a href="/login" className="m-item">
+            Login
+          </a>
         </nav>{" "}
         <div className="m-contact">
           <span className="m-label">Get in touch</span>

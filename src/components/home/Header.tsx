@@ -5,7 +5,7 @@ import Image from "next/image";
 import { 
   Globe, Layers, Smartphone, BarChart3, Cloud, Users, Gamepad2, ShoppingCart, Palette, Code, ShieldCheck, Cpu,
   FileText, Share2, TrendingUp, SearchCheck,
-  Settings2, Headset, Bot, Video, PenTool, Award 
+  Settings2, Headset, Bot, Video, PenTool, Award, Phone, ChevronRight
 } from "lucide-react";
 import Script from "next/script";
 
@@ -13,6 +13,31 @@ export default function Header() {
   const pathname = usePathname();
   return (
     <header className="site-header">
+      <div className="top-strip">
+        <div className="marquee-wrapper">
+          <div className="top-marquee-track" data-marquee-clone>
+            <div className="group">
+              <span>CONNECT WITH US</span>
+              <span className="sep">+</span>
+              <span>Uncover proof of RapidGroDigital's impact across 21000+ digital deliveries in 20+ industries. <a href="/contact">EXPLORE NOW!</a></span>
+              <span className="sep">+</span>
+              <span>AI, Cloud, and Product Engineering with a 96% success rate. <a href="/contact">SEE HOW</a></span>
+              <span className="sep">+</span>
+              <span>CONNECT WITH US</span>
+              <span className="sep">+</span>
+              <span>Uncover proof of RapidGroDigital's impact across 21000+ digital deliveries in 20+ industries. <a href="/contact">EXPLORE NOW!</a></span>
+              <span className="sep">+</span>
+              <span>AI, Cloud, and Product Engineering with a 96% success rate. <a href="/contact">SEE HOW</a></span>
+              <span className="sep">+</span>
+            </div>
+          </div>
+        </div>
+        <div className="top-strip-action">
+          <a href="/contact" className="quick-consult-btn">
+            <Phone size={14} strokeWidth={2.5} /> Quick Consult
+          </a>
+        </div>
+      </div>
       <div className="bar">
         <a className="brand" href="/" aria-label="RapidGroDigital home">
           <Image
@@ -234,11 +259,15 @@ export default function Header() {
               </div>
             </div>
           </div>
-
         </nav>
-        <a className="btn dark sm header-cta" href="https://wa.me/917292854317" data-magnetic>
-          📞 7292854317 <span className="arrow">↗</span>
-        </a>
+        <div className="header-actions">
+          <a className="btn dark sm header-cta" href="https://wa.me/917292854317" data-magnetic>
+            📞 7292854317 <span className="arrow">↗</span>
+          </a>
+          <a href="/login" className="login-link">
+            Login <ChevronRight size={16} strokeWidth={3} />
+          </a>
+        </div>
         <button
           className="burger"
           aria-expanded={false}
