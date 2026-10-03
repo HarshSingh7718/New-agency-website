@@ -4,6 +4,8 @@ import MobileNav from "@/components/home/MobileNav";
 import Hero from "@/components/home/Hero";
 import AboutUs from "@/components/home/AboutUs";
 import Portfolio from "@/components/home/Portfolio";
+import Services from "@/components/home/Services";
+import { ClipPathLinks } from "@/components/ui/clip-path-links";
 import Team from "@/components/home/Team";
 import Stats from "@/components/home/Stats";
 import Approach from "@/components/home/Approach";
@@ -22,12 +24,14 @@ export default function HomePage() {
         <Hero />
         <AboutUs />
         <Portfolio />
-        <Team />
+        <Services />
+        <ClipPathLinks />
+        {/* <Team /> */}
         <Stats />
         <Approach />
         <Testimonials />
         <FAQ />
-        <CTA />
+        {/* <CTA /> */}
       </main>
       <Footer />
       <BackToTop />

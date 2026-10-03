@@ -5,7 +5,8 @@ import Image from "next/image";
 import { 
   Globe, Layers, Smartphone, BarChart3, Cloud, Users, Gamepad2, ShoppingCart, Palette, Code, ShieldCheck, Cpu,
   FileText, Share2, TrendingUp, SearchCheck,
-  Settings2, Headset, Bot, Video, PenTool, Award, Phone, ChevronRight
+  Settings2, Headset, Bot, Video, PenTool, Award, Phone, ChevronRight,
+  Calculator, ShoppingBag, Package, Store, Utensils, Truck, Pizza, GraduationCap, School, BookOpen, Building2, Server, Briefcase, Clipboard, MessageCircle, Heart
 } from "lucide-react";
 import Script from "next/script";
 
@@ -218,44 +219,48 @@ export default function Header() {
                 <path d="M6 9l6 6 6-6"></path>
               </svg>
             </a>
-            <div className="dropdown mega align-right">
+            <div className="dropdown mega align-center">
               <div className="mega-col">
                 <div className="mega-title">E-COMMERCE</div>
-                <a href="/contact"><span className="t">Accounting Software Development Services</span></a>
-                <a href="/contact"><span className="t">Amazon Clone App Development Company</span></a>
-                <a href="/contact"><span className="t">Custom E-commerce App Development Company</span></a>
-                <a href="/contact"><span className="t">Custom E-commerce Software Development Company</span></a>
-                <a href="/contact"><span className="t">Custom Marketplace App Development Company</span></a>
-                <a href="/contact"><span className="t">E-commerce App & Website Development Company</span></a>
-
-                <div className="mega-title" style={{ marginTop: '16px' }}>FOOD & BEVERAGE</div>
-                <a href="/contact"><span className="t">Custom Grocery Delivery App Development Company</span></a>
-                <a href="/contact"><span className="t">Custom Restaurant Management Software Development Company</span></a>
-                <a href="/contact"><span className="t">Food Delivery App Development Company</span></a>
-                <a href="/contact"><span className="t">Food Ordering System Development</span></a>
+                <a href="/contact"><span className="ico"><Calculator /></span><span className="t">Accounting Software Development Services</span></a>
+                <a href="/contact"><span className="ico"><ShoppingCart /></span><span className="t">Amazon Clone App Development Company</span></a>
+                <a href="/contact"><span className="ico"><ShoppingBag /></span><span className="t">Custom E-commerce App Development Company</span></a>
+                <a href="/contact"><span className="ico"><Package /></span><span className="t">Custom E-commerce Software Development Company</span></a>
+                <a href="/contact"><span className="ico"><Store /></span><span className="t">Custom Marketplace App Development Company</span></a>
+                <a href="/contact"><span className="ico"><ShoppingCart /></span><span className="t">E-commerce App & Website Development Company</span></a>
               </div>
+              
               <div className="mega-col">
-                <div className="mega-title">EDUCATION</div>
-                <a href="/contact"><span className="t">Learning Management System (LMS) Development</span></a>
-                <a href="/contact"><span className="t">School Management Software Development</span></a>
-                <a href="/contact"><span className="t">Student Information System (SIS) Development</span></a>
+                <div className="mega-title">FOOD & BEVERAGE</div>
+                <a href="/contact"><span className="ico"><ShoppingCart /></span><span className="t">Custom Grocery Delivery App Development Company</span></a>
+                <a href="/contact"><span className="ico"><Utensils /></span><span className="t">Custom Restaurant Management Software Development Company</span></a>
+                <a href="/contact"><span className="ico"><Truck /></span><span className="t">Food Delivery App Development Company</span></a>
+                <a href="/contact"><span className="ico"><Pizza /></span><span className="t">Food Ordering System Development</span></a>
 
-                <div className="mega-title" style={{ marginTop: '16px' }}>REAL ESTATE</div>
-                <a href="/contact"><span className="t">Custom Real Estate Platform Solutions</span></a>
+                <div className="mega-title" style={{ marginTop: '16px' }}>EDUCATION</div>
+                <a href="/contact"><span className="ico"><GraduationCap /></span><span className="t">Learning Management System (LMS) Development</span></a>
+                <a href="/contact"><span className="ico"><School /></span><span className="t">School Management Software Development</span></a>
+                <a href="/contact"><span className="ico"><BookOpen /></span><span className="t">Student Information System (SIS) Development</span></a>
               </div>
+
               <div className="mega-col">
                 <div className="mega-title">ENTERPRISE</div>
-                <a href="/contact"><span className="t">CRM Software Development</span></a>
-                <a href="/contact"><span className="t">ERP Software Development</span></a>
-                <a href="/contact"><span className="t">HRM Software Development</span></a>
-                <a href="/contact"><span className="t">HRMS Software Development</span></a>
-                <a href="/contact"><span className="t">Inventory Management Software Development</span></a>
+                <a href="/contact"><span className="ico"><Users /></span><span className="t">CRM Software Development</span></a>
+                <a href="/contact"><span className="ico"><Server /></span><span className="t">ERP Software Development</span></a>
+                <a href="/contact"><span className="ico"><Briefcase /></span><span className="t">HRM Software Development</span></a>
+                <a href="/contact"><span className="ico"><Briefcase /></span><span className="t">HRMS Software Development</span></a>
+                <a href="/contact"><span className="ico"><Clipboard /></span><span className="t">Inventory Management Software Development</span></a>
 
-                <div className="mega-title" style={{ marginTop: '16px' }}>SOCIAL MEDIA</div>
-                <a href="/contact"><span className="t">Custom Chat App Development Company</span></a>
-                <a href="/contact"><span className="t">Custom Dating App Development Company</span></a>
-                <a href="/contact"><span className="t">Custom Influencer App Development Company</span></a>
-                <a href="/contact"><span className="t">Social Media App Development Company</span></a>
+                <div className="mega-title" style={{ marginTop: '16px' }}>REAL ESTATE</div>
+                <a href="/contact"><span className="ico"><Building2 /></span><span className="t">Custom Real Estate Platform Solutions</span></a>
+              </div>
+
+              <div className="mega-col">
+                <div className="mega-title">SOCIAL MEDIA</div>
+                <a href="/contact"><span className="ico"><MessageCircle /></span><span className="t">Custom Chat App Development Company</span></a>
+                <a href="/contact"><span className="ico"><Heart /></span><span className="t">Custom Dating App Development Company</span></a>
+                <a href="/contact"><span className="ico"><Share2 /></span><span className="t">Custom Influencer App Development Company</span></a>
+                <a href="/contact"><span className="ico"><Share2 /></span><span className="t">Social Media App Development Company</span></a>
               </div>
             </div>
           </div>

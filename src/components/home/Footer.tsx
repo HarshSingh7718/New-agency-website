@@ -1,139 +1,89 @@
-import Link from "next/link";
+import DitheredFooter from "@/components/ui/dithered-footer";
+import { MapPin, Mail, Phone } from "lucide-react";
 import Image from "next/image";
-import { Wrench, SearchCheck, Send, MapPin, Mail, Phone } from "lucide-react";
-import Script from "next/script";
 
 export default function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="in">
-        <span className="footer-watermark" aria-hidden="true">
-          rapidgrodigital
-        </span>
-        <div className="top">
-          <a className="footer-email" style={{ fontSize: "medium" }} href="mailto:rapidgrodigitalforyou@gmail.com">
-            rapidgrodigitalforyou@gmail.com
-          </a>
-          <div className="footer-socials">
-            <a
-              href="https://www.linkedin.com/in/lucky-kumar-62b722434?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-              aria-label="LinkedIn"
-            >
-              <iconify-icon icon="simple-icons:linkedin"></iconify-icon>
-            </a>
-            <a
-              href="https://www.instagram.com/rapidgrodigital?stkn=MTY4enptcnZnb2hwdg=="
-              aria-label="Instagram"
-            >
-              <iconify-icon icon="simple-icons:instagram"></iconify-icon>
-            </a>
-
-          </div>
-        </div>
-        <div className="footer-cols">
-          <div className="footer-col">
-            <h4>Pages</h4>
-            <ul className="footer-menu">
-              <li
-                id="menu-item-425"
-                className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-425"
-              >
-                <a href="/" aria-current="page">
-                  Home
-                </a>
-              </li>
-              <li
-                id="menu-item-426"
-                className="menu-item menu-item-type-custom menu-item-object-custom menu-item-426"
-              >
-                <a href="/#services">Services</a>
-              </li>
-              <li
-                id="menu-item-427"
-                className="menu-item menu-item-type-custom menu-item-object-custom menu-item-427"
-              >
-                <a href="/#work">Work</a>
-              </li>
-              <li
-                id="menu-item-428"
-                className="menu-item menu-item-type-custom menu-item-object-custom menu-item-428"
-              >
-                <a href="/#team">About</a>
-              </li>
-             
-              <li
-                id="menu-item-430"
-                className="menu-item menu-item-type-custom menu-item-object-custom menu-item-430"
-              >
-                <a href="/#testimonials">Our clients</a>
-              </li>
-              <li
-                id="menu-item-431"
-                className="menu-item menu-item-type-custom menu-item-object-custom menu-item-431"
-              >
-                <a href="/contact">Contact</a>
-              </li>
-            </ul>{" "}
-          </div>
-          <div className="footer-col">
-            <h4>Services</h4>
-            <a href="/contact">Hire WordPress Developer</a>
-            <a href="/contact">Hire Shopify Developer</a>
-            <a href="/contact">Custom SaaS Applications</a>
-            <a href="/contact">Search Engine Optimization</a>
-            <a href="/contact">Social Media Marketing</a>
-            <a href="/contact">WooCommerce Development</a>
-            <a href="/contact">Webflow Development</a>{" "}
-          </div>
-
-          <div className="footer-col">
-            <h4>Contact</h4>
-            <a
-              className="footer-contact"
-              href="https://share.google/kCFvwivlDpB1shCFS"
-              target="_blank"
-              rel="noopener"
-            >
-              <MapPin></MapPin>
-              <span>
-                Dehradun, Near Jigyasa University Gajender vihar AWHO Road Lane
-                no 2
-              </span>
-            </a>
-            <a
-              className="footer-contact"
-              href="mailto:rapidgrodigitalforyou@gmail.com"
-            >
-              <Mail></Mail>
-              <span>rapidgrodigitalforyou@gmail.com</span>
-            </a>
-            <a className="footer-contact" href="tel:+917292854317">
-              <Phone></Phone>
-              <span>7292854317</span>
-            </a>
-          </div>
-        </div>
-        <div className="footer-bar">
-          <span className="footer-brand">
-            <Image
-              className="brand-logo"
-              src="/images/Agency-logo-bg-removed.png"
-              alt="RapidGroDigital logo"
-              width="500"
-              height="500"
-            ></Image>
-          </span>
-          <span className="footer-copy">
-            &copy; 2026 RapidGroDigital. All rights reserved.
-           
-          </span>
-          <span className="footer-legal">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Cookies</a>{" "}
-          </span>
-        </div>
-      </div>
-    </footer>
-  );
+    return (
+        <DitheredFooter
+            logo={
+                <Image
+                    className="brand-logo"
+                    src="/images/Agency-logo-bg-removed.png"
+                    alt="RapidGroDigital logo"
+                    width={500}
+                    height={500}
+                />
+            }
+            brand="RapidGro"
+            brandHref="/"
+            tagline="Websites, ecommerce, SaaS and digital marketing built for growth."
+            accent="#E91E8C"
+            columns={[
+                {
+                    title: "Company",
+                    links: [
+                        { label: "Home", href: "/" },
+                        { label: "Services", href: "/#services" },
+                        { label: "Work", href: "/#work" },
+                        { label: "About", href: "/#team" },
+                        { label: "Our clients", href: "/#testimonials" },
+                        { label: "Contact", href: "/contact" },
+                    ],
+                },
+                {
+                    title: "Build",
+                    links: [
+                        { label: "Website Development", href: "/contact" },
+                        { label: "E-Commerce Development", href: "/contact" },
+                        { label: "Mobile App Development", href: "/contact" },
+                        { label: "CRM & ERP Development", href: "/contact" },
+                        { label: "Cloud Solutions", href: "/contact" },
+                    ],
+                },
+                {
+                    title: "Grow",
+                    links: [
+                        { label: "SEO & Local SEO", href: "/contact" },
+                        { label: "Google Ads", href: "/contact" },
+                        { label: "Meta Ads", href: "/contact" },
+                        { label: "Social Media Marketing", href: "/contact" },
+                        { label: "AI Automation", href: "/contact" },
+                    ],
+                },
+                {
+                    title: "Contact",
+                    links: [
+                        { label: "Dehradun, Near Jigyasa University Gajender\nvihar AWHO Road Lane no 2", href: "https://share.google/kCFvwivlDpB1shCFS", icon: <MapPin className="h-4 w-4" /> },
+                        { label: "rapidgrodigitalforyou@gmail.com", href: "mailto:rapidgrodigitalforyou@gmail.com", icon: <Mail className="h-4 w-4" /> },
+                        { label: "7292854317", href: "tel:+917292854317", icon: <Phone className="h-4 w-4" /> },
+                    ]
+                }
+            ]}
+            socials={[
+                {
+                    label: "LinkedIn",
+                    href: "https://www.linkedin.com/in/lucky-kumar-62b722434?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+                    icon: (
+                        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+                            <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                        </svg>
+                    ),
+                },
+                {
+                    label: "Instagram",
+                    href: "https://www.instagram.com/rapidgrodigital?stkn=MTY4enptcnZnb2hwdg==",
+                    icon: (
+                        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    ),
+                },
+            ]}
+            legal={[
+                { label: "Privacy", href: "#" },
+                { label: "Terms", href: "#" },
+                { label: "Cookies", href: "#" },
+            ]}
+        />
+    );
 }
