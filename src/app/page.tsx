@@ -2,7 +2,7 @@ import Script from "next/script";
 import Header from "@/components/home/Header";
 import MobileNav from "@/components/home/MobileNav";
 import Hero from "@/components/home/Hero";
-import Services from "@/components/home/Services";
+import AboutUs from "@/components/home/AboutUs";
 import Portfolio from "@/components/home/Portfolio";
 import Team from "@/components/home/Team";
 import Stats from "@/components/home/Stats";
@@ -20,7 +20,7 @@ export default function HomePage() {
       <MobileNav />
       <main id="main">
         <Hero />
-        <Services />
+        <AboutUs />
         <Portfolio />
         <Team />
         <Stats />
