@@ -197,8 +197,8 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
 .dropdown.align-right { left: auto; right: -200px; transform: translateX(0) translateY(10px); }
 .main-nav .has-children:hover .dropdown.align-right, .main-nav .has-children.is-open .dropdown.align-right { transform: translateX(0) translateY(0); }
 
-.dropdown.align-center { left: auto; right: -20px; transform: translateY(10px); margin-left: 0; }
-.main-nav .has-children:hover .dropdown.align-center, .main-nav .has-children.is-open .dropdown.align-center { transform: translateY(0); }
+.dropdown.align-center { left: 50%; right: auto; transform: translateX(-50%) translateY(10px); margin-left: -200px; }
+.main-nav .has-children:hover .dropdown.align-center, .main-nav .has-children.is-open .dropdown.align-center { transform: translateX(-50%) translateY(0); }
 
 .header-cta { flex: none; }
 

@@ -228,21 +228,22 @@ export default function Header() {
                 <a href="/contact"><span className="ico"><Package /></span><span className="t">Custom E-commerce Software Development Company</span></a>
                 <a href="/contact"><span className="ico"><Store /></span><span className="t">Custom Marketplace App Development Company</span></a>
                 <a href="/contact"><span className="ico"><ShoppingCart /></span><span className="t">E-commerce App & Website Development Company</span></a>
-              </div>
-              
-              <div className="mega-col">
-                <div className="mega-title">FOOD & BEVERAGE</div>
+
+                <div className="mega-title" style={{ marginTop: '16px' }}>FOOD & BEVERAGE</div>
                 <a href="/contact"><span className="ico"><ShoppingCart /></span><span className="t">Custom Grocery Delivery App Development Company</span></a>
                 <a href="/contact"><span className="ico"><Utensils /></span><span className="t">Custom Restaurant Management Software Development Company</span></a>
                 <a href="/contact"><span className="ico"><Truck /></span><span className="t">Food Delivery App Development Company</span></a>
                 <a href="/contact"><span className="ico"><Pizza /></span><span className="t">Food Ordering System Development</span></a>
-
-                <div className="mega-title" style={{ marginTop: '16px' }}>EDUCATION</div>
+              </div>
+              <div className="mega-col">
+                <div className="mega-title">EDUCATION</div>
                 <a href="/contact"><span className="ico"><GraduationCap /></span><span className="t">Learning Management System (LMS) Development</span></a>
                 <a href="/contact"><span className="ico"><School /></span><span className="t">School Management Software Development</span></a>
                 <a href="/contact"><span className="ico"><BookOpen /></span><span className="t">Student Information System (SIS) Development</span></a>
-              </div>
 
+                <div className="mega-title" style={{ marginTop: '16px' }}>REAL ESTATE</div>
+                <a href="/contact"><span className="ico"><Building2 /></span><span className="t">Custom Real Estate Platform Solutions</span></a>
+              </div>
               <div className="mega-col">
                 <div className="mega-title">ENTERPRISE</div>
                 <a href="/contact"><span className="ico"><Users /></span><span className="t">CRM Software Development</span></a>
@@ -251,12 +252,7 @@ export default function Header() {
                 <a href="/contact"><span className="ico"><Briefcase /></span><span className="t">HRMS Software Development</span></a>
                 <a href="/contact"><span className="ico"><Clipboard /></span><span className="t">Inventory Management Software Development</span></a>
 
-                <div className="mega-title" style={{ marginTop: '16px' }}>REAL ESTATE</div>
-                <a href="/contact"><span className="ico"><Building2 /></span><span className="t">Custom Real Estate Platform Solutions</span></a>
-              </div>
-
-              <div className="mega-col">
-                <div className="mega-title">SOCIAL MEDIA</div>
+                <div className="mega-title" style={{ marginTop: '16px' }}>SOCIAL MEDIA</div>
                 <a href="/contact"><span className="ico"><MessageCircle /></span><span className="t">Custom Chat App Development Company</span></a>
                 <a href="/contact"><span className="ico"><Heart /></span><span className="t">Custom Dating App Development Company</span></a>
                 <a href="/contact"><span className="ico"><Share2 /></span><span className="t">Custom Influencer App Development Company</span></a>
