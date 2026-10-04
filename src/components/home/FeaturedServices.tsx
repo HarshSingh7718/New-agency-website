@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
@@ -70,7 +70,7 @@ const cardVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: i * 0.12, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.55, delay: i * 0.12, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
   }),
 };
 

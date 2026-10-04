@@ -34,11 +34,11 @@ const services = [
 const scaleAnimation = {
   closed: {
     scale: 0,
-    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
+    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] as [number, number, number, number] },
   },
   enter: {
     scale: 1,
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] },
   },
   initial: { scale: 0 },
 };

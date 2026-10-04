@@ -3,20 +3,26 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, User, Building2, Mail, Phone, Star, Quote } from "lucide-react";
-import clsx from "clsx";
+
 
 export default function InitialPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHasMounted(true);
-    // Small delay for better UX
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 3000);
     
-    return () => clearTimeout(timer);
+    const hasSeenPopup = sessionStorage.getItem("hasSeenInitialPopup");
+    
+    if (!hasSeenPopup) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        sessionStorage.setItem("hasSeenInitialPopup", "true");
+      }, 20000);
+      
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   // Prevent hydration mismatch
@@ -41,7 +47,7 @@ export default function InitialPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-5xl rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl !border !border-white/20"
+            className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl !border !border-white/20"
             style={{ backgroundColor: "var(--color-ink)", color: "var(--color-on-dark)" }}
           >
             {/* Close Button */}
@@ -60,7 +66,7 @@ export default function InitialPopup() {
                 <div className="rounded-2xl p-6 mb-2! !border !border-white/10 !bg-white/5 relative">
                   <Quote className="absolute top-4 left-4 !text-[var(--color-brand-magenta)] opacity-20 w-10 h-10" />
                   <p className="relative z-10 text-sm md:text-base leading-relaxed !text-white mt-4 mb-6 font-medium">
-                    "We were impressed by the attention to detail and timely delivery. The entire experience was seamless, and we would gladly work with them again"
+                    &quot;We were impressed by the attention to detail and timely delivery. The entire experience was seamless, and we would gladly work with them again&quot;
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full !bg-[#10B981] flex items-center justify-center !text-white font-bold text-sm">
