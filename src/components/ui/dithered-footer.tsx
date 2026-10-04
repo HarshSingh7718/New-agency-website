@@ -138,11 +138,11 @@ export default function DitheredFooter({
                 ))}
             </div>
 
-            <div aria-hidden="true" className="df-band relative h-60 overflow-hidden" onPointerMove={onMove} onPointerLeave={onLeave}>
+            <div aria-hidden="true" className="df-band relative h-60 md:h-[400px]! overflow-hidden" onPointerMove={onMove} onPointerLeave={onLeave}>
                 <div ref={field} className="df-field">
                     <div className="df-dots" />
                 </div>
-                <p className="df-mark pointer-events-none absolute -bottom-[0.05em] left-1/2 -translate-x-1/2 md:left-5 md:translate-x-0 w-full text-center md:text-left select-none text-[clamp(2rem,16vw,4rem)] md:text-[clamp(4rem,18vw,13rem)] font-bold leading-[0.8] tracking-[-0.06em] text-[#140820]" style={{ textShadow: "0 0 1px rgba(255,255,255,0.1)" }}>
+                <p className="df-mark pointer-events-none absolute -bottom-[0.05em] mb-4! md:mb-8! left-1/2 -translate-x-1/2 md:left-5 md:translate-x-0 w-full text-center md:text-left select-none text-[clamp(2rem,16vw,4rem)] md:text-[clamp(4rem,18vw,13rem)] font-bold leading-[0.8] tracking-[-0.06em] text-[#140820]" style={{ textShadow: "0 0 1px rgba(255,255,255,0.1)" }}>
                     rapidgrodigital
                 </p>
             </div>
