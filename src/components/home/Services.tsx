@@ -8,25 +8,25 @@ const services = [
   {
     title: "Marketing & SEO",
     description: "Data-driven marketing and SEO optimization to boost your reach.",
-    src: "/images/portfolio/med-intel.png",
+    src: "/images/portfolio/seo.jpg",
     color: "#0f0a1e",
   },
   {
     title: "App & Web Dev",
     description: "Scalable mobile and web applications built for speed.",
-    src: "/images/portfolio/physics-wallah.png",
+    src: "/images/portfolio/web.png",
     color: "#1c0b2e",
   },
   {
     title: "UI/UX Design",
     description: "Premium user interfaces and intuitive user experiences.",
-    src: "/images/portfolio/lumitec-consulting-website-design.png",
+    src: "/images/portfolio/ui.png",
     color: "#0f0a1e",
   },
   {
     title: "Latest Tech",
     description: "Access to cutting-edge technology stacks.",
-    src: "/images/portfolio/derma-energy-skincare-ecommerce-website-design.png",
+    src: "/images/portfolio/latest-tech.png",
     color: "#E91E8C",
   },
 ];
@@ -43,39 +43,37 @@ const scaleAnimation = {
   initial: { scale: 0 },
 };
 
-import Partners from "./Partners";
-
 export default function Services() {
   const [modal, setModal] = useState({ active: false, index: 0 });
 
   return (
     <>
-      <Partners />
+
       <section className="py-20 lg:py-32 relative bg-[#140820] text-white overflow-hidden" id="services">
         <div className="container relative z-20">
           <div className="rg-portfolio__head reveal mb-16 lg:mb-24">
-          <h2 className="text-white! text-center text-5xl md:text-7xl lg:text-[5rem]! font-bold tracking-tight mb-6 mt-[-45]!">
-            Featured <span className="serif">Services.</span>
-          </h2>
-          <p className="body-text text-center mx-auto max-w-[680px] text-white! mb-8!">
-            Our solutions are tailored to meet the unique challenges of modern
-            digital landscapes, providing speed.
-          </p>
+            <h2 className="text-white! text-center text-5xl md:text-7xl lg:text-[5rem]! font-bold tracking-tight mb-6 mt-[-45]!">
+              Featured <span className="serif">Services.</span>
+            </h2>
+            <p className="body-text text-center mx-auto max-w-[680px] text-white! mb-8!">
+              Our solutions are tailored to meet the unique challenges of modern
+              digital landscapes, providing speed.
+            </p>
+          </div>
+          <div className="flex w-full flex-col items-center justify-center">
+            {services.map((service, index) => (
+              <Project
+                index={index}
+                key={service.title}
+                setModal={setModal}
+                title={service.title}
+                description={service.description}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex w-full flex-col items-center justify-center">
-          {services.map((service, index) => (
-            <Project
-              index={index}
-              key={service.title}
-              setModal={setModal}
-              title={service.title}
-              description={service.description}
-            />
-          ))}
-        </div>
-      </div>
-      <Modal modal={modal} projects={services} />
-    </section>
+        <Modal modal={modal} projects={services} />
+      </section>
     </>
   );
 }

@@ -118,9 +118,9 @@ export default function DitheredFooter({
             <style>{STYLES}</style>
             <div className="w-full border-t border-[#ffffff1a]" />
 
-            <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-[44px] px-6 py-[40px] pl-[80px] sm:px-8 lg:pl-[120px] md:grid-cols-[1fr_1.2fr_1.2fr_1.5fr] !ml-0 md:!ml-24">
+            <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-[44px] px-5! py-[40px] pl-[80px] sm:px-8 lg:pl-[120px] md:grid-cols-[1fr_1.2fr_1.2fr_1.5fr] !ml-0 md:!ml-24">
                 {columns.map((col) => (
-                    <nav key={col.title} aria-label={col.title} className="flex flex-col items-start text-left">
+                    <nav key={col.title} aria-label={col.title} className={`flex flex-col items-start text-left ${col.title === 'Grow' ? 'hidden md:flex' : ''}`}>
                         <p className="mb-[18px]! text-[16px] font-bold tracking-[0.14em] uppercase !text-white/70">
                             {col.title}
                         </p>
@@ -142,23 +142,23 @@ export default function DitheredFooter({
                 <div ref={field} className="df-field">
                     <div className="df-dots" />
                 </div>
-                <p className="df-mark pointer-events-none absolute -bottom-[0.05em] left-3 select-none text-[clamp(4rem,18vw,13rem)] font-bold leading-[0.8] tracking-[-0.06em] text-[#140820] sm:left-5" style={{ textShadow: "0 0 1px rgba(255,255,255,0.1)" }}>
+                <p className="df-mark pointer-events-none absolute -bottom-[0.05em] left-1/2 -translate-x-1/2 md:left-5 md:translate-x-0 w-full text-center md:text-left select-none text-[clamp(2rem,16vw,4rem)] md:text-[clamp(4rem,18vw,13rem)] font-bold leading-[0.8] tracking-[-0.06em] text-[#140820]" style={{ textShadow: "0 0 1px rgba(255,255,255,0.1)" }}>
                     rapidgrodigital
                 </p>
             </div>
 
-            <div className="border-t border-[#ffffff1a] py-[4px]">
-                <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center justify-between gap-4 px-6 pl-[80px] sm:flex-row sm:px-8 lg:pl-[120px] !ml-0 md:!ml-24">
+            <div className="border-t border-[#ffffff1a] py-2! md:py-[4px]">
+                <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center justify-between gap-2 px-5 md:pl-[80px] sm:flex-row sm:px-8 lg:pl-[120px] !ml-0 md:!ml-24">
                     {/* Logo */}
                     {logo && <div className="flex items-center">{logo}</div>}
 
                     {/* Copyright */}
-                    <div className="text-[16px] !text-white text-center">
+                    <div className="text-[14px] md:text-[16px] !text-white text-center">
                         <p>{copyright}</p>
                     </div>
 
                     {/* Legal */}
-                    <div className="flex items-center gap-[30px] text-[16px] !text-white">
+                    <div className="flex flex-wrap items-center justify-center gap-2 md:gap-[30px] text-[14px] md:text-[16px] !text-white">
                         {legal.map((l) => (
                             <a key={l.label} href={l.href} className={`transition-colors hover:!text-[var(--c-green-on-dark)] ${focus}`}>
                                 {l.label}

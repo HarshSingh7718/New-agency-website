@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import AgencyChatbot from "@/components/chat/AgencyChatbot";
+import InitialPopup from "@/components/ui/InitialPopup";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         {children}
+        <InitialPopup />
         <AgencyChatbot />
       </body>
     </html>

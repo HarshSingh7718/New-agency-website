@@ -41,7 +41,7 @@ export default function AboutUs() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const text = "Regular as hearts by garret. Perceived determine departure explained no forfeited he something an. Contrasted dissimilar get joy you instrument out reasonably. Again keeps at no meant stuff. To perpetual do existence northward as difficult.";
+  const text = "We combine strategy, creativity, and technology to build digital experiences that connect brands with their audiences, drive engagement, and turn ambitious ideas into measurable growth. From bold concepts to powerful digital solutions, we turn vision into impact that lasts.";
   const words = text.split(" ");
 
   const headingWords = [
@@ -55,7 +55,7 @@ export default function AboutUs() {
   ];
 
   return (
-    <section className="py-24 lg:py-32 bg-white relative overflow-hidden" id="about-us">
+    <section className="pt-24 pb-12! md:pb-24 lg:py-32 bg-white relative overflow-hidden" id="about-us">
       <style dangerouslySetInnerHTML={{ __html: `
         .scroll-reveal-text span {
           opacity: calc(0.15 + clamp(0, (var(--p, 0) - var(--i)) * 6, 0.85));
@@ -68,12 +68,12 @@ export default function AboutUs() {
 
           {/* Left: Image */}
           <div className="relative">
-            <div className="relative z-10 w-full aspect-[4/5] lg:h-[600px] rounded-sm overflow-hidden bg-gray-100">
+            <div className="relative z-10 w-full lg:h-[600px] rounded-sm overflow-hidden bg-gray-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/portfolio/about.png"
                 alt="About us"
-                className="w-full h-full object-cover"
+                className="w-full h-auto lg:h-full object-cover block"
               />
             </div>
 
@@ -90,8 +90,7 @@ export default function AboutUs() {
           <div className="flex flex-col z-30">
             <h2
               ref={headingRef}
-              className="scroll-reveal-text text-4xl md:text-5xl lg:text-[56px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0A0A0A]"
-              style={{ marginBottom: "56px" }}
+              className="scroll-reveal-text text-4xl md:text-5xl lg:text-[56px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0A0A0A] mb-8! md:mb-14"
             >
               {headingWords.map((item, i) => (
                 <React.Fragment key={i}>
@@ -103,10 +102,10 @@ export default function AboutUs() {
               ))}
             </h2>
 
-            <div className="flex flex-row items-start">
-              <div className="flex items-center gap-4 shrink-0 w-[185px] pt-1">
+            <div className="flex flex-col md:flex-row items-start gap-6 md:gap-0">
+              <div className="flex items-center gap-4 shrink-0 w-full md:w-[185px] pt-1">
                 <span className="text-[17px] font-bold text-black whitespace-nowrap">About Us</span>
-                <div className="h-[1.5px] w-16 bg-gray-300 shrink-0"></div>
+                <div className="h-[1.5px] flex-1 md:flex-none md:w-16 bg-gray-300"></div>
               </div>
 
               <div className="flex-1">

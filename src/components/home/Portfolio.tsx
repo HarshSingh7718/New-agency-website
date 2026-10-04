@@ -2,14 +2,14 @@ import StackingCards, { ProjectData } from "@/components/ui/stacking-card";
 
 const projects: ProjectData[] = [
   {
-    title: "MedIntel AI Platform",
-    description: "A cutting-edge Healthcare AI platform transforming medical data into actionable insights, improving patient outcomes and streamlining clinical workflows with intelligent automation.",
-    link: "https://med-intel-ai-16.vercel.app/",
-    image: "/images/portfolio/med-intel.png",
+    title: "Lunara Home Decor",
+    description: "A beautifully crafted e-commerce platform for modern living. Features seamless shopping for thoughtful decor and timeless comfort, designed to transform houses into beautiful homes.",
+    link: "#",
+    image: "/images/portfolio/lunara.jpg",
     color: "#0f0a1e",
-    accentColor: "#FF4DB8",
+    accentColor: "#E91E8C",
     textOnDark: true,
-    tag: "Healthcare · AI"
+    tag: "Ecommerce · Home Decor"
   },
   {
     title: "Physics Wallah",
@@ -22,31 +22,31 @@ const projects: ProjectData[] = [
     tag: "EdTech · Web"
   },
   {
-    title: "Lumitec Consulting",
-    description: "A high-conversion consulting website built with premium design principles — clean architecture, powerful CMS, and strategic UX that drives qualified leads.",
+    title: "Velora Jewellery",
+    description: "A premium, elegant e-commerce experience for minimal and meaningful jewelry. Showcases timeless designs with a luxurious user interface and a smooth, engaging buying journey.",
     link: "#",
-    image: "/images/portfolio/lumitec-consulting-website-design.png",
+    image: "/images/portfolio/velora.jpg",
     color: "#0f0a1e",
     accentColor: "#E91E8C",
     textOnDark: true,
-    tag: "Consulting · Branding"
+    tag: "Ecommerce · Jewelry"
   },
   {
-    title: "Derma Energy Skincare",
-    description: "A premium e-commerce experience for a skincare brand, featuring immersive product pages, seamless checkout, and a design language that communicates trust and luxury.",
+    title: "Northwave Gear",
+    description: "A rugged, high-performance outdoor gear store built for real adventurers. The platform highlights durable and lightweight products with an immersive, conversion-focused design.",
     link: "#",
-    image: "/images/portfolio/derma-energy-skincare-ecommerce-website-design.png",
+    image: "/images/portfolio/northwave.jpg",
     color: "#1c0b2e",
     accentColor: "#FF4DB8",
     textOnDark: true,
-    tag: "Ecommerce · Design"
+    tag: "Ecommerce · Outdoor Gear"
   }
 ];
 
 export default function Portfolio() {
   return (
     <section className="rg-portfolio relative" id="work" aria-labelledby="work-h">
-      <div className="container relative z-20 pt-16">
+      <div className="container relative z-20 md:pt-16">
         <div className="rg-portfolio__head reveal">
           <h2 id="work-h">
             Our success stories showcasing{" "}
@@ -62,11 +62,11 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div className="mt-[-4vh] lg:mt-[-8vh]">
+      <div className="mt-18! md:mt-[-4vh] lg:mt-[-8vh]">
         <StackingCards projects={projects} />
       </div>
 
-      <div className="container pb-24 relative z-20 mt-[-35vh] lg:mt-[-50vh]">
+      <div className="container pb-5 relative z-20 mt-[5vh]! lg:mt-[-50vh]">
         <div className="rg-portfolio__foot reveal">
           <a className="btn dark" href="/contact" data-magnetic>
             Start your project <span className="arrow">&#x2197;</span>

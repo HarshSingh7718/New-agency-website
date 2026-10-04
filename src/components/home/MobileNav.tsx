@@ -147,13 +147,19 @@ export default function MobileNav() {
         </div>
         <div className="m-socials">
           <a
-            href="https://www.linkedin.com/in/lucky-kumar-62b722434?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+            href="https://www.linkedin.com/in/rapidgro-digital-62b722434"
             aria-label="LinkedIn"
           >
             <iconify-icon icon="simple-icons:linkedin"></iconify-icon>
           </a>
           <a
-            href="https://www.instagram.com/rapidgrodigital?stkn=MTY4enptcnZnb2hwdg=="
+            href="https://www.facebook.com/share/1cgDP9puEV/"
+            aria-label="Facebook"
+          >
+            <iconify-icon icon="simple-icons:facebook"></iconify-icon>
+          </a>
+          <a
+            href="https://www.instagram.com/rapidgrodigital"
             aria-label="Instagram"
           >
             <iconify-icon icon="simple-icons:instagram"></iconify-icon>

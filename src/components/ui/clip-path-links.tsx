@@ -24,7 +24,7 @@ export const ClipPathLinks = () => {
   return (
     <section className="pt-20 lg:pt-32 pb-12 lg:pb-16 relative bg-white text-black border-t border-black/5">
       <div className="container relative z-20">
-        <div className="rg-portfolio__head reveal mb-16 lg:mb-15! text-center">
+        <div className="rg-portfolio__head reveal mb-10! lg:mb-15! text-center">
           <h2 className="text-black! text-center text-4xl md:text-6xl font-bold tracking-tight mb-6">
             Our <span className="serif">Tech Stack.</span>
           </h2>
