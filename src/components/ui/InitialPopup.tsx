@@ -47,7 +47,7 @@ export default function InitialPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl !border !border-white/20"
+            className="relative w-full max-w-3xl rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl !border !border-white/20"
             style={{ backgroundColor: "var(--color-ink)", color: "var(--color-on-dark)" }}
           >
             {/* Close Button */}
@@ -60,12 +60,12 @@ export default function InitialPopup() {
             </button>
 
             {/* Left Side - Testimonial & Stats */}
-            <div className="hidden md:flex w-full md:w-1/2 p-8 md:p-10 flex-col justify-between relative md:border-r !border-white/10" style={{ backgroundColor: "var(--color-dark)" }}>
-              <div className="space-y-14">
+            <div className="hidden md:flex w-full md:w-1/2 p-6 md:p-8 flex-col justify-between relative md:border-r !border-white/10" style={{ backgroundColor: "var(--color-dark)" }}>
+              <div className="space-y-8">
                 {/* Testimonial Card */}
-                <div className="rounded-2xl p-6 mb-2! !border !border-white/10 !bg-white/5 relative">
-                  <Quote className="absolute top-4 left-4 !text-[var(--color-brand-magenta)] opacity-20 w-10 h-10" />
-                  <p className="relative z-10 text-sm md:text-base leading-relaxed !text-white mt-4 mb-6 font-medium">
+                <div className="rounded-2xl p-5 mb-2! !border !border-white/10 !bg-white/5 relative">
+                  <Quote className="absolute top-4 left-4 !text-[var(--color-brand-magenta)] opacity-20 w-8 h-8" />
+                  <p className="relative z-10 text-xs md:text-sm leading-relaxed !text-white mt-3 mb-4 font-medium">
                     &quot;We were impressed by the attention to detail and timely delivery. The entire experience was seamless, and we would gladly work with them again&quot;
                   </p>
                   <div className="flex items-center gap-4">
@@ -109,7 +109,7 @@ export default function InitialPopup() {
               </div>
 
               {/* Footer Info */}
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <p className="font-semibold !text-white mb-1">Need Instant Help?</p>
                   <a href="mailto:info@rapidgrodigital.com" className="text-sm !text-[#10B981] hover:underline">
@@ -124,17 +124,17 @@ export default function InitialPopup() {
             </div>
 
             {/* Right Side - Form */}
-            <div className="w-full md:w-1/2 p-5 md:p-10 flex flex-col justify-center relative bg-[var(--color-ink)]">
-              <div className="mb-5! md:mb-6!">
-                <h2 className="text-[26px] md:text-4xl font-bold mb-2 md:mb-3 leading-tight !text-[var(--color-brand-magenta)]">
+            <div className="w-full md:w-1/2 p-5 md:p-8 flex flex-col justify-center relative bg-[var(--color-ink)]">
+              <div className="mb-4! md:mb-5!">
+                <h2 className="text-[22px] md:text-3xl font-bold mb-1.5 md:mb-2 leading-tight !text-[var(--color-brand-magenta)]">
                   Share Your Vision & Get Instant Revert
                 </h2>
-                <p className="!text-white/80 text-sm md:text-base mt-1!">
+                <p className="!text-white/80 text-xs md:text-sm mt-1!">
                   Reach our experts anytime to avail upfront insights on project overview.
                 </p>
               </div>
 
-              <form className="space-y-3! md:space-y-4!" onSubmit={(e) => { e.preventDefault(); setIsOpen(false); }}>
+              <form className="space-y-2.5! md:space-y-3!" onSubmit={(e) => { e.preventDefault(); setIsOpen(false); }}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="relative">
                     <User size={16} className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 !text-white/50 scale-90 md:scale-100" />
@@ -142,7 +142,7 @@ export default function InitialPopup() {
                       type="text" 
                       placeholder="Full name *" 
                       required
-                      className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2.5 md:py-3 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
+                      className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2 md:py-2.5 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
                     />
                   </div>
                   <div className="relative">
@@ -150,7 +150,7 @@ export default function InitialPopup() {
                     <input 
                       type="text" 
                       placeholder="Company Name" 
-                      className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2.5 md:py-3 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
+                      className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2 md:py-2.5 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
                     />
                   </div>
                 </div>
@@ -161,31 +161,31 @@ export default function InitialPopup() {
                     type="email" 
                     placeholder="example@youremail.com *" 
                     required
-                    className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2.5 md:py-3 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
+                    className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2 md:py-2.5 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
                   />
                 </div>
 
                 <div className="relative flex">
-                  <div className="!bg-white/5 !border !border-white/20 !border-r-0 rounded-l-lg py-2.5 md:py-3 px-3 md:px-4 flex items-center justify-center !text-white/70 text-xs md:text-sm">
+                  <div className="!bg-white/5 !border !border-white/20 !border-r-0 rounded-l-lg py-2 md:py-2.5 px-3 md:px-4 flex items-center justify-center !text-white/70 text-xs md:text-sm">
                     IN
                   </div>
                   <input 
                     type="tel" 
                     placeholder="+91 Phone Number *" 
                     required
-                    className="w-full !bg-white/5 !border !border-white/20 rounded-r-lg py-2.5 md:py-3 px-3 md:px-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
+                    className="w-full !bg-white/5 !border !border-white/20 rounded-r-lg py-2 md:py-2.5 px-3 md:px-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
                   />
                 </div>
 
                 <textarea 
                   placeholder="How can we help you?" 
-                  rows={3}
-                  className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2.5 md:py-3 px-3 md:px-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm resize-none"
+                  rows={2}
+                  className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2 md:py-2.5 px-3 md:px-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm resize-none"
                 ></textarea>
 
                 <button 
                   type="submit"
-                  className="w-full py-3 md:py-3.5 rounded-lg text-sm md:text-base font-bold !text-white shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 !bg-[var(--color-brand-magenta)]"
+                  className="w-full py-2.5 md:py-3 rounded-lg text-sm md:text-base font-bold !text-white shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 !bg-[var(--color-brand-magenta)]"
                 >
                   Book Free Consultation
                 </button>

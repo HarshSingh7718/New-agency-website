@@ -37,25 +37,25 @@ export const ClipPathLinks = () => {
         <div className="flex w-full items-center justify-center px-4 md:px-0">
           <div className="w-full max-w-5xl lg:max-w-6xl divide-y border divide-black/10 border-black/10 rounded-xl overflow-hidden shadow-2xl">
             <div className="grid grid-cols-5 divide-x divide-black/10">
-              <LinkBox Icon={SiReact} href="https://react.dev/" />
-              <LinkBox Icon={SiNextdotjs} href="https://nextjs.org/" />
-              <LinkBox Icon={SiTailwindcss} href="https://tailwindcss.com/" />
-              <LinkBox Icon={SiTypescript} href="https://www.typescriptlang.org/" />
-              <LinkBox Icon={SiNodedotjs} href="https://nodejs.org/" />
+              <LinkBox Icon={SiReact} />
+              <LinkBox Icon={SiNextdotjs} />
+              <LinkBox Icon={SiTailwindcss} />
+              <LinkBox Icon={SiTypescript} />
+              <LinkBox Icon={SiNodedotjs} />
             </div>
             <div className="grid grid-cols-5 divide-x divide-black/10">
-              <LinkBox Icon={SiPython} href="https://www.python.org/" />
-              <LinkBox Icon={SiGraphql} href="https://graphql.org/" />
-              <LinkBox Icon={FaAws} href="https://aws.amazon.com/" />
-              <LinkBox Icon={SiVercel} href="https://vercel.com/" />
-              <LinkBox Icon={SiDocker} href="https://www.docker.com/" />
+              <LinkBox Icon={SiPython} />
+              <LinkBox Icon={SiGraphql} />
+              <LinkBox Icon={FaAws} />
+              <LinkBox Icon={SiVercel} />
+              <LinkBox Icon={SiDocker} />
             </div>
             <div className="grid grid-cols-5 divide-x divide-black/10">
-              <LinkBox Icon={SiPostgresql} href="https://www.postgresql.org/" />
-              <LinkBox Icon={SiMongodb} href="https://www.mongodb.com/" />
-              <LinkBox Icon={SiPrisma} href="https://www.prisma.io/" />
-              <LinkBox Icon={SiSupabase} href="https://supabase.com/" />
-              <LinkBox Icon={SiFigma} href="https://www.figma.com/" />
+              <LinkBox Icon={SiPostgresql} />
+              <LinkBox Icon={SiMongodb} />
+              <LinkBox Icon={SiPrisma} />
+              <LinkBox Icon={SiSupabase} />
+              <LinkBox Icon={SiFigma} />
             </div>
           </div>
         </div>
@@ -84,10 +84,10 @@ const EXIT_KEYFRAMES: Record<string, string[]> = {
   right: [NO_CLIP, BOTTOM_LEFT_CLIP],
 };
 
-const LinkBox = ({ Icon, href }: { Icon: any; href: string }) => {
+const LinkBox = ({ Icon }: { Icon: any }) => {
   const [scope, animate] = useAnimate();
 
-  const getNearestSide = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const getNearestSide = (e: React.MouseEvent<HTMLDivElement>) => {
     const box = (e.target as HTMLElement).getBoundingClientRect();
 
     const proximityToLeft = {
@@ -117,14 +117,14 @@ const LinkBox = ({ Icon, href }: { Icon: any; href: string }) => {
     return sortedProximity[0].side;
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
     const side = getNearestSide(e);
     animate(scope.current, {
       clipPath: ENTRANCE_KEYFRAMES[side],
     });
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const side = getNearestSide(e);
     animate(scope.current, {
       clipPath: EXIT_KEYFRAMES[side],
@@ -132,13 +132,10 @@ const LinkBox = ({ Icon, href }: { Icon: any; href: string }) => {
   };
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative grid h-20 w-full place-content-center sm:h-28 md:h-36 bg-white text-black/60 hover:text-black"
+      className="relative grid h-20 w-full place-content-center sm:h-28 md:h-36 bg-white text-black/60 hover:text-black cursor-default"
     >
       <Icon className="text-3xl sm:text-4xl md:text-5xl transition-colors duration-300" />
 
@@ -149,6 +146,6 @@ const LinkBox = ({ Icon, href }: { Icon: any; href: string }) => {
       >
         <Icon className="text-3xl sm:text-4xl md:text-5xl" />
       </div>
-    </a>
+    </div>
   );
 };

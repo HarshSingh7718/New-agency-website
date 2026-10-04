@@ -107,12 +107,21 @@ function Modal({ modal, projects }: any) {
   const springY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      const clientX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+      const clientY = 'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
+      cursorX.set(clientX);
+      cursorY.set(clientY);
     };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMove as EventListener);
+    window.addEventListener("touchmove", handleMove as EventListener, { passive: true });
+    window.addEventListener("touchstart", handleMove as EventListener, { passive: true });
+    
+    return () => {
+      window.removeEventListener("mousemove", handleMove as EventListener);
+      window.removeEventListener("touchmove", handleMove as EventListener);
+      window.removeEventListener("touchstart", handleMove as EventListener);
+    };
   }, [cursorX, cursorY]);
 
   return (
@@ -127,7 +136,7 @@ function Modal({ modal, projects }: any) {
           translateX: "-50%",
           translateY: "-50%",
         }}
-        className="pointer-events-none fixed top-0 left-0 z-50 flex h-[350px] w-[400px] items-center justify-center overflow-hidden rounded-2xl shadow-2xl bg-[#0f0a1e] hidden md:flex"
+        className="pointer-events-none fixed top-0 left-0 z-50 flex h-[220px] w-[280px] md:h-[350px] md:w-[400px] items-center justify-center overflow-hidden rounded-2xl shadow-2xl bg-[#0f0a1e]"
       >
         <div
           className="absolute h-full w-full transition-[top] duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
@@ -160,7 +169,7 @@ function Modal({ modal, projects }: any) {
           translateX: "-50%",
           translateY: "-50%",
         }}
-        className="pointer-events-none fixed top-0 left-0 z-50 flex h-20 w-20 items-center justify-center rounded-full bg-[#E91E8C] font-bold text-sm text-white hidden md:flex"
+        className="pointer-events-none fixed top-0 left-0 z-50 flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-[#E91E8C] font-bold text-xs md:text-sm text-white"
       >
         View
       </motion.div>

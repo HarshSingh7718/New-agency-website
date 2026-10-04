@@ -7,12 +7,11 @@ export default function Hero() {
         <canvas className="hero-smoke" aria-hidden={true}></canvas>{" "}
 
         {/* Sticky Social Media Sidebar */}
-        <div style={{
+        <div className="hidden md:flex" style={{
           position: "fixed",
           left: "24px",
           top: "50%",
           transform: "translateY(-50%)",
-          display: "flex",
           flexDirection: "column",
           alignItems: "center",
           gap: "12px",
