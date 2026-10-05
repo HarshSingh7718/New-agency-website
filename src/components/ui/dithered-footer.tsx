@@ -138,7 +138,7 @@ export default function DitheredFooter({
                 ))}
             </div>
 
-            <div aria-hidden="true" className="df-band relative h-60 md:h-[400px]! overflow-hidden" onPointerMove={onMove} onPointerLeave={onLeave}>
+            <div aria-hidden="true" className="df-band relative h-60 overflow-hidden" onPointerMove={onMove} onPointerLeave={onLeave}>
                 <div ref={field} className="df-field">
                     <div className="df-dots" />
                 </div>
