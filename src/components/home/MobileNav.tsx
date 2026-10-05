@@ -141,7 +141,7 @@ export default function MobileNav() {
           <a href="mailto:rapidgrodigitalforyou@gmail.com">
             <Mail></Mail>rapidgrodigitalforyou@gmail.com
           </a>
-          <a href="tel:+917292854317">
+          <a href="tel:+919762951896">
             <Phone></Phone>072928 54317
           </a>
         </div>

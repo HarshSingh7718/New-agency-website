@@ -55,7 +55,7 @@ export default function Footer() {
                     links: [
                         { label: "Dehradun, Near Jigyasa University Gajender\nvihar AWHO Road Lane no 2", href: "https://share.google/kCFvwivlDpB1shCFS", icon: <MapPin className="h-4 w-4" /> },
                         { label: "rapidgrodigitalforyou@gmail.com", href: "mailto:rapidgrodigitalforyou@gmail.com", icon: <Mail className="h-4 w-4" /> },
-                        { label: "7292854317", href: "tel:+917292854317", icon: <Phone className="h-4 w-4" /> },
+                        { label: "9762951896", href: "tel:+919762951896", icon: <Phone className="h-4 w-4" /> },
                     ]
                 }
             ]}

@@ -12,15 +12,15 @@ export default function InitialPopup() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setHasMounted(true);
-    
+
     const hasSeenPopup = sessionStorage.getItem("hasSeenInitialPopup");
-    
+
     if (!hasSeenPopup) {
       const timer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem("hasSeenInitialPopup", "true");
       }, 20000);
-      
+
       return () => clearTimeout(timer);
     }
   }, []);
@@ -118,7 +118,7 @@ export default function InitialPopup() {
                 </div>
                 <a href="tel:+919149050623" className="flex items-center gap-2 px-4 py-2 rounded-full !border !border-white/20 !bg-white/5 hover:!bg-white/10 transition-colors text-sm font-medium !text-[var(--color-brand-magenta)]">
                   <Phone size={14} className="!text-[var(--color-brand-magenta)]" />
-                  +91 7292854317
+                  +91 9762951896
                 </a>
               </div>
             </div>
@@ -138,18 +138,18 @@ export default function InitialPopup() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="relative">
                     <User size={16} className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 !text-white/50 scale-90 md:scale-100" />
-                    <input 
-                      type="text" 
-                      placeholder="Full name *" 
+                    <input
+                      type="text"
+                      placeholder="Full name *"
                       required
                       className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2 md:py-2.5 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
                     />
                   </div>
                   <div className="relative">
                     <Building2 size={16} className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 !text-white/50 scale-90 md:scale-100" />
-                    <input 
-                      type="text" 
-                      placeholder="Company Name" 
+                    <input
+                      type="text"
+                      placeholder="Company Name"
                       className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2 md:py-2.5 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
                     />
                   </div>
@@ -157,9 +157,9 @@ export default function InitialPopup() {
 
                 <div className="relative">
                   <Mail size={16} className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 !text-white/50 scale-90 md:scale-100" />
-                  <input 
-                    type="email" 
-                    placeholder="example@youremail.com *" 
+                  <input
+                    type="email"
+                    placeholder="example@youremail.com *"
                     required
                     className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2 md:py-2.5 pl-9 md:pl-10 pr-3 md:pr-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
                   />
@@ -169,27 +169,27 @@ export default function InitialPopup() {
                   <div className="!bg-white/5 !border !border-white/20 !border-r-0 rounded-l-lg py-2 md:py-2.5 px-3 md:px-4 flex items-center justify-center !text-white/70 text-xs md:text-sm">
                     IN
                   </div>
-                  <input 
-                    type="tel" 
-                    placeholder="+91 Phone Number *" 
+                  <input
+                    type="tel"
+                    placeholder="+91 Phone Number *"
                     required
                     className="w-full !bg-white/5 !border !border-white/20 rounded-r-lg py-2 md:py-2.5 px-3 md:px-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm"
                   />
                 </div>
 
-                <textarea 
-                  placeholder="How can we help you?" 
+                <textarea
+                  placeholder="How can we help you?"
                   rows={2}
                   className="w-full !bg-white/5 !border !border-white/20 rounded-lg py-2 md:py-2.5 px-3 md:px-4 !text-white !placeholder-white/60 focus:outline-none focus:!border-[var(--color-brand-magenta)] transition-colors text-xs md:text-sm resize-none"
                 ></textarea>
 
-                <button 
+                <button
                   type="submit"
                   className="w-full py-2.5 md:py-3 rounded-lg text-sm md:text-base font-bold !text-white shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 !bg-[var(--color-brand-magenta)]"
                 >
                   Book Free Consultation
                 </button>
-                
+
                 <p className="text-center text-[10px] md:text-xs !text-white/60 pt-1 md:pt-2">
                   No spam, ever. We reply within one business day.
                 </p>

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { 
+import {
   Globe, Layers, Smartphone, BarChart3, Cloud, Users, Gamepad2, ShoppingCart, Palette, Code, ShieldCheck, Cpu,
   FileText, Share2, TrendingUp, SearchCheck,
   Settings2, Headset, Bot, Video, PenTool, Award, Phone, ChevronRight,
@@ -262,8 +262,8 @@ export default function Header() {
           </div>
         </nav>
         <div className="header-actions">
-          <a className="btn dark sm header-cta" href="https://wa.me/917292854317" data-magnetic>
-            📞 7292854317 <span className="arrow">↗</span>
+          <a className="btn dark sm header-cta" href="https://wa.me/919762951896" data-magnetic>
+            📞 9762951896 <span className="arrow">↗</span>
           </a>
           <a href="/login" className="login-link">
             Login <ChevronRight size={16} strokeWidth={3} />

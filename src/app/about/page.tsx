@@ -35,12 +35,12 @@ export default function AboutPage() {
                 <p className="body-text max-w-[540px] reveal reveal-d2" style={{ color: "var(--c-body)", marginBottom: "30px" }}>
                   RapidGro Digital is an AI consultancy and digital growth partner helping businesses automate, innovate, and scale with intelligent technology solutions.
                 </p>
-                <a href="https://wa.me/917292854317" target="_blank" rel="noopener noreferrer" className="btn dark sm inline-flex items-center justify-center overflow-hidden group relative hover:!bg-[var(--c-ink)] transition-colors duration-300 reveal reveal-d3" style={{ background: "var(--c-green-deep)", color: "#fff", height: "54px", minWidth: "240px" }} data-magnetic>
+                <a href="https://wa.me/919762951896" target="_blank" rel="noopener noreferrer" className="btn dark sm inline-flex items-center justify-center overflow-hidden group relative hover:!bg-[var(--c-ink)] transition-colors duration-300 reveal reveal-d3" style={{ background: "var(--c-green-deep)", color: "#fff", height: "54px", minWidth: "240px" }} data-magnetic>
                   <div className="flex items-center gap-2 transition-transform duration-300 group-hover:-translate-y-12">
                     Start a conversation <span className="arrow">↗</span>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center gap-2 transition-transform duration-300 translate-y-12 group-hover:translate-y-0">
-                    <Phone size={18} fill="currentColor" strokeWidth={0} /> 7292854317 <span className="arrow">↗</span>
+                    <Phone size={18} fill="currentColor" strokeWidth={0} /> 9762951896 <span className="arrow">↗</span>
                   </div>
                 </a>
               </div>
