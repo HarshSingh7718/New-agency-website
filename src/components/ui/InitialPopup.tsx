@@ -111,12 +111,12 @@ export default function InitialPopup() {
               {/* Footer Info */}
               <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <p className="font-semibold !text-white mb-1">Need Instant Help?</p>
+                  <p className="font-semibold !text-white">Need Instant Help?</p>
                   <a href="mailto:info@rapidgrodigital.com" className="text-sm !text-[#10B981] hover:underline">
                     info@rapidgrodigital.com
                   </a>
                 </div>
-                <a href="tel:+919149050623" className="flex items-center gap-2 px-4 py-2 rounded-full !border !border-white/20 !bg-white/5 hover:!bg-white/10 transition-colors text-sm font-medium !text-[var(--color-brand-magenta)]">
+                <a href="tel:+919762951896" className="w-fit whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full !border !border-white/20 !bg-white/5 hover:!bg-white/10 transition-colors text-sm font-medium !text-[var(--color-brand-magenta)]">
                   <Phone size={14} className="!text-[var(--color-brand-magenta)]" />
                   +91 9762951896
                 </a>
