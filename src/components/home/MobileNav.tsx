@@ -142,7 +142,7 @@ export default function MobileNav() {
             <Mail></Mail>rapidgrodigitalforyou@gmail.com
           </a>
           <a href="tel:+919762951896">
-            <Phone></Phone>072928 54317
+            <Phone></Phone>+91 9762951896
           </a>
         </div>
         <div className="m-socials">
