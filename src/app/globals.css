@@ -1,7 +1,18 @@
-/* Utilities only — skip Tailwind Preflight so /public/css theme styles match production. */
+/* Utilities only — skip Tailwind Preflight so theme styles match production. */
 @layer theme, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
+
+/* Bundled Core Stylesheets */
+@import "../styles/theme.css";
+@import "../styles/responsive.css";
+@import "../styles/sections-v2.css";
+@import "../styles/portfolio-showcase.css";
+@import "../styles/apart-steps.css";
+@import "../styles/team.css";
+@import "../styles/modern-stacks.css";
+@import "../styles/testimonials-loop.css";
+@import "../styles/faq.css";
 
 /* ===================== SCROLL REVEAL ANIMATIONS ===================== */
 .reveal {

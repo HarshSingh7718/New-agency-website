@@ -45,15 +45,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Great+Vibes&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="/css/theme.css" />
-        <link rel="stylesheet" href="/css/responsive.css" />
-        <link rel="stylesheet" href="/css/sections-v2.css" />
-        <link rel="stylesheet" href="/css/portfolio-showcase.css" />
-        <link rel="stylesheet" href="/css/apart-steps.css" />
-        <link rel="stylesheet" href="/css/team.css" />
-        <link rel="stylesheet" href="/css/modern-stacks.css" />
-        <link rel="stylesheet" href="/css/testimonials-loop.css" />
-        <link rel="stylesheet" href="/css/faq.css" />
       </head>
       <body className="home">
         <Script

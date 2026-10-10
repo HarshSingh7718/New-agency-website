@@ -47,7 +47,7 @@ export default function Team() {
               </div>
               <div className="team-card__info">
                 <span className="team-card__role">Founder &amp; CEO</span>
-                <h3 className="team-card__name">Lucky Kumar</h3>
+                <h3 className="team-card__name"></h3>
               </div>
             </div>
 
