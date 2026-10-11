@@ -2,14 +2,14 @@ import StackingCards, { ProjectData } from "@/components/ui/stacking-card";
 
 const projects: ProjectData[] = [
   {
-    title: "Lunara Home Decor",
-    description: "A beautifully crafted e-commerce platform for modern living. Features seamless shopping for thoughtful decor and timeless comfort, designed to transform houses into beautiful homes.",
-    link: "#",
-    image: "/images/portfolio/lunara.jpg",
-    color: "#0f0a1e",
-    accentColor: "#E91E8C",
+    title: "DataDank",
+    description: "A comprehensive data engineering learning and interview preparation platform. Features structured 90-day roadmaps, interactive coding exercises, and real-world project workflows built to accelerate tech careers.",
+    link: "https://datadank.com",
+    image: "/images/portfolio/datadank.png",
+    color: "#16110e",
+    accentColor: "#F97316",
     textOnDark: true,
-    tag: "Ecommerce · Home Decor"
+    tag: "EdTech · Data Engineering"
   },
   {
     title: "Physics Wallah",

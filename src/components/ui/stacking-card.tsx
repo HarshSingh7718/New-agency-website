@@ -103,7 +103,11 @@ export const Card = ({
               className={`w-full h-full`}
               style={{ scale: imageScale }}
             >
-              <img src={project.image} alt={project.title} className='absolute inset-0 w-full h-full object-cover' />
+              <img
+                src={project.image}
+                alt={project.title}
+                className='absolute inset-0 w-full h-full object-cover'
+              />
             </motion.div>
           </div>
         </div>
