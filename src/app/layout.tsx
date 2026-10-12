@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     description:
       "Websites, ecommerce, SaaS and digital marketing built for growth.",
   },
+  verification: {
+    google: "iDgsgVdNughzYZQGsFRv7lirya_OeLKXiqPROEeQCtY",
+  },
 };
 
 export const viewport: Viewport = {
@@ -35,7 +38,6 @@ export default function RootLayout({
     <html lang="en-US" className="js">
       <head>
         <meta name="apple-mobile-web-app-title" content="RapidGro" />
-        <meta name="google-site-verification" content="iDgsgVdNughzYZQGsFRv7lirya_OeLKXiqPROEeQCtY" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
