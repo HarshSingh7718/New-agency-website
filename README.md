@@ -58,7 +58,7 @@ RapidGroDigital is a modern, responsive website built for a full-service digital
 
 ## Contact Form & AI Chatbot
 
-The project includes a Resend-first contact backend with Gmail/Nodemailer fallback and a Groq-powered agency chatbot with context-aware suggested replies.
+The project uses **Zoho Mail** for contact form enquiries with `Reply-To` set to the client's email (enabling the owner to converse directly by clicking Reply), reserves **Resend** for future one-way transactional notifications (welcome emails, OTP, invoices), and features a **Groq**-powered AI chatbot with context-aware suggested replies.
 
 ## Design System
 

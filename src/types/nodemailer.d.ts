@@ -6,6 +6,9 @@ declare module "nodemailer" {
 
   type TransportOptions = {
     service?: string;
+    host?: string;
+    port?: number;
+    secure?: boolean;
     auth?: Auth;
   };
 

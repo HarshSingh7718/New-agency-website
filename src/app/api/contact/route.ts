@@ -65,72 +65,40 @@ function buildEmailContent(message: ContactMessage): EmailContent {
   };
 }
 
-async function sendWithResend(
+async function sendWithZoho(
   message: ContactMessage,
   content: EmailContent,
 ): Promise<void> {
-  const apiKey = process.env.RESEND_API_KEY?.trim();
-  const from = process.env.RESEND_FROM_EMAIL?.trim();
-  const to = process.env.CONTACT_TO_EMAIL?.trim();
-
-  if (!apiKey || !from || !to) {
-    throw new Error("RESEND_CONFIGURATION_INCOMPLETE");
-  }
-
-  const resendResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      reply_to: message.email,
-      subject: content.subject,
-      html: content.html,
-      text: content.text,
-    }),
-    signal: AbortSignal.timeout(15000),
-  });
-
-  if (!resendResponse.ok) {
-    const providerMessage = await resendResponse.text();
-    console.error(
-      "Resend delivery failed:",
-      resendResponse.status,
-      providerMessage.slice(0, 500),
-    );
-    throw new Error("RESEND_DELIVERY_FAILED");
-  }
-}
-
-async function sendWithGmail(
-  message: ContactMessage,
-  content: EmailContent,
-): Promise<void> {
-  const gmailUser = process.env.GMAIL_USER?.trim();
-  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD
+  const zohoUser = process.env.ZOHO_USER?.trim();
+  const zohoAppPassword = process.env.ZOHO_APP_PASSWORD
     ?.replaceAll(" ", "")
     .trim();
-  const to = process.env.CONTACT_TO_EMAIL?.trim() || gmailUser;
+  const zohoHost = process.env.ZOHO_HOST?.trim() || "smtppro.zoho.com";
+  const zohoPort = Number(process.env.ZOHO_PORT) || 465;
+  const to = process.env.CONTACT_TO_EMAIL?.trim() || zohoUser;
 
-  if (!gmailUser || !gmailAppPassword || !to) {
-    throw new Error("GMAIL_CONFIGURATION_INCOMPLETE");
+  if (!zohoUser || !zohoAppPassword || !to) {
+    throw new Error("ZOHO_CONFIGURATION_INCOMPLETE");
   }
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: zohoHost,
+    port: zohoPort,
+    secure: zohoPort === 465,
     auth: {
-      user: gmailUser,
-      pass: gmailAppPassword,
+      user: zohoUser,
+      pass: zohoAppPassword,
     },
   });
 
+  const fullName = `${message.firstName} ${message.lastName}`.trim();
+
+  // Send inquiry to owner with Reply-To set to the client's email so the owner
+  // can directly click "Reply" in their email client to talk with the client.
   await transporter.sendMail({
-    from: `RapidGroDigital Website <${gmailUser}>`,
+    from: `RapidGroDigital Website <${zohoUser}>`,
     to,
-    replyTo: message.email,
+    replyTo: fullName ? `"${fullName}" <${message.email}>` : message.email,
     subject: content.subject,
     html: content.html,
     text: content.text,
@@ -166,18 +134,29 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  let firstName = clean(body.firstName, 80);
+  let lastName = clean(body.lastName, 80);
+  const fullName = clean(body.fullName, 160);
+
+  if ((!firstName || !lastName) && fullName) {
+    const parts = fullName.split(/\s+/);
+    firstName = parts[0] || "";
+    lastName = parts.slice(1).join(" ") || "Client";
+  }
+
   const message: ContactMessage = {
-    firstName: clean(body.firstName, 80),
-    lastName: clean(body.lastName, 80),
+    firstName,
+    lastName: lastName || "Client",
     email: clean(body.email, 254).toLowerCase(),
     phone: clean(body.phone, 40),
-    companyUrl: clean(body.companyUrl, 500),
-    projectDetails: clean(body.projectDetails, 5000),
+    companyUrl: clean(body.companyUrl || body.companyName, 500),
+    projectDetails:
+      clean(body.projectDetails, 5000) ||
+      "Quick consultation inquiry submitted from website popup modal.",
   };
 
   if (
     !message.firstName ||
-    !message.lastName ||
     !message.email ||
     !message.projectDetails
   ) {
@@ -197,23 +176,14 @@ export async function POST(request: Request) {
   const content = buildEmailContent(message);
 
   try {
-    // Resend is the primary transport. Gmail is used only when no Resend API
-    // key is configured; a broken Resend setup is intentionally not hidden by
-    // silently falling back to Gmail.
-    if (process.env.RESEND_API_KEY?.trim()) {
-      await sendWithResend(message, content);
-    } else {
-      await sendWithGmail(message, content);
-    }
+    // Deliver website enquiries via Zoho Mail directly to the owner inbox
+    await sendWithZoho(message, content);
   } catch (error) {
     console.error("Contact delivery error:", error);
 
     const code = error instanceof Error ? error.message : "UNKNOWN";
 
-    if (
-      code === "RESEND_CONFIGURATION_INCOMPLETE" ||
-      code === "GMAIL_CONFIGURATION_INCOMPLETE"
-    ) {
+    if (code === "ZOHO_CONFIGURATION_INCOMPLETE") {
       return NextResponse.json(
         { error: "Contact delivery is not configured yet." },
         { status: 503 },
