@@ -1,0 +1,40 @@
+import {defineField, defineType} from "sanity";
+
+export const contactPageType = defineType({
+  name: "contactPage",
+  title: "Contact page",
+  type: "document",
+  fields: [
+    defineField({name: "seo", type: "seo", validation: (rule) => rule.required()}),
+    defineField({name: "eyebrow", type: "string", validation: (rule) => rule.required()}),
+    defineField({name: "title", type: "string", validation: (rule) => rule.required()}),
+    defineField({name: "accentTitle", type: "string", validation: (rule) => rule.required()}),
+    defineField({name: "description", type: "text", rows: 4, validation: (rule) => rule.required()}),
+    defineField({
+      name: "form",
+      type: "object",
+      fields: [
+        defineField({name: "firstNameLabel", type: "string"}),
+        defineField({name: "firstNamePlaceholder", type: "string"}),
+        defineField({name: "lastNameLabel", type: "string"}),
+        defineField({name: "lastNamePlaceholder", type: "string"}),
+        defineField({name: "emailLabel", type: "string"}),
+        defineField({name: "emailPlaceholder", type: "string"}),
+        defineField({name: "phoneLabel", type: "string"}),
+        defineField({name: "phonePlaceholder", type: "string"}),
+        defineField({name: "companyUrlLabel", type: "string"}),
+        defineField({name: "companyUrlPlaceholder", type: "string"}),
+        defineField({name: "detailsLabel", type: "string"}),
+        defineField({name: "detailsPlaceholder", type: "string"}),
+        defineField({name: "submitLabel", type: "string"}),
+        defineField({name: "sendingLabel", type: "string"}),
+        defineField({name: "consentText", type: "text", rows: 2}),
+        defineField({name: "successTitle", type: "string"}),
+        defineField({name: "successMessage", type: "text", rows: 3}),
+        defineField({name: "errorTitle", type: "string"}),
+        defineField({name: "errorMessage", type: "text", rows: 3}),
+      ],
+    }),
+  ],
+  preview: {prepare: () => ({title: "Contact page"})},
+});

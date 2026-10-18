@@ -46,6 +46,13 @@
   --gutter: 40px;
   --header-h: 96px;
 
+  /* Navbar Background Mode: Set to '#ffffff' for solid white, or 'transparent' for transparent */
+  --navbar-bg: #ffffff;
+  --navbar-border: #E6E0EE;
+  --navbar-shadow: 0 4px 20px rgba(26, 11, 46, 0.06);
+  --navbar-h: 124px;
+  --navbar-spacing: var(--navbar-h);
+
   --r-img: 8px;
   --r-card: 16px;
   --r-pill: 999px;
@@ -160,8 +167,8 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
 .ico.on-dark { background: rgba(233, 30, 140, 0.14); color: var(--c-green-on-dark); }
 
 /* ===================== 6. HEADER / NAV ===================== */
-.site-header { position: fixed; inset: 0 0 auto 0; z-index: 50; background: transparent; border-bottom: 1px solid transparent; transition: background var(--dur) ease, border-color var(--dur) ease, box-shadow var(--dur) ease; }
-.site-header.is-scrolled { background: var(--c-bg, #F8F6FB); border-bottom-color: var(--c-line, #E6E0EE); box-shadow: 0 6px 24px rgba(26, 11, 46, 0.08); }
+.site-header { position: fixed; inset: 0 0 auto 0; width: 100%; z-index: 60; background: var(--navbar-bg, #ffffff); border-bottom: 1px solid var(--navbar-border, #E6E0EE); box-shadow: var(--navbar-shadow, 0 4px 20px rgba(26, 11, 46, 0.06)); transition: background var(--dur) ease, border-color var(--dur) ease, box-shadow var(--dur) ease; }
+.site-header.is-scrolled { background: #ffffff; border-bottom-color: #E6E0EE; box-shadow: 0 8px 30px rgba(26, 11, 46, 0.10); }
 .site-header .bar { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 18px var(--gutter); }
 .brand { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: var(--c-ink); }
 .brand:hover { color: var(--c-ink); }
@@ -1289,3 +1296,22 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
 .mk-webflowsub .wp-chrome { background: #EDF0FE; }
 .mk-webflowsub .mkc-ct iconify-icon, .mk-webflowsub .mkc-flowarrow { color: #4353FF; }
 .mk-webflowsub .wpm-shot { display: grid; place-items: center; font-size: 24px; color: var(--c-green-deep); }
+
+/* ===================== VIDEO HERO TYPOGRAPHY OVERRIDE ===================== */
+.video-hero-section h1,
+.video-hero-section h1 * {
+  color: #ffffff !important;
+}
+.video-hero-section h1 span.accent-pink,
+.video-hero-section h1 .accent-pink {
+  color: #FF4DB8 !important;
+}
+.video-hero-section a,
+.video-hero-section a span,
+.video-hero-section a svg,
+.video-hero-section a * {
+  color: #ffffff !important;
+}
+.video-hero-section p {
+  color: #ffffff !important;
+}

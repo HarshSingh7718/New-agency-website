@@ -1,142 +1,31 @@
+"use client";
+
 import Image from "next/image";
-import { Play, ArrowLeft, ArrowRight } from "lucide-react";
+import {ArrowLeft, ArrowRight, Play} from "lucide-react";
+import type {TeamMember} from "@/sanity/lib/types";
 
-export default function Team() {
+export default function Team({heading, members}: {heading: {eyebrow?: string; title: string; accentTitle?: string; description?: string}; members: TeamMember[]}) {
   return (
-    <section
-      className="section team-section"
-      id="team"
-      aria-labelledby="team-h"
-    >
-      <div className="container reveal team-container">
-        <div className="team-header">
-          <div className="team-header__left">
-            <span className="eyebrow on-dark">Meet our experts</span>
-            <h2 className="heading on-dark" id="team-h">
-              Employees Speak
-            </h2>
-            <p className="team-subtitle">
-              Hear What Our Satisfied Employees Have To Say
-            </p>
-          </div>
-          <div className="team-header__right">
-            <a className="btn green" href="#contact" data-magnetic>
-              Explore Careers <span className="arrow">↗</span>
-            </a>
-          </div>
+    <section className="team-section" id="team" aria-labelledby="team-h">
+      <div className="container team-container">
+        <div className="team-header reveal">
+          <div className="team-header__left">{heading.eyebrow && <span className="eyebrow">{heading.eyebrow}</span>}<h2 className="heading on-dark" id="team-h">{heading.title} {heading.accentTitle && <span className="serif">{heading.accentTitle}</span>}</h2>{heading.description && <p className="team-subtitle">{heading.description}</p>}</div>
         </div>
-
         <div className="team-slider-outer">
           <div className="team-slider-inner" id="teamSlider">
-            {/**/}
-            <div className="team-card">
-              <div className="team-card__image-wrapper">
-                <Image
-                  src="/images/lucky.jpg"
-                  alt="Geetanjali Sikarwar, Software Developer"
-                  loading="lazy"
-                  width="500"
-                  height="500"
-                ></Image>
-                <button
-                  className="team-card__play"
-                  aria-label="Play introduction video for Geetanjali Sikarwar"
-                >
-                  <Play></Play>
-                </button>
+            {members.map((member) => (
+              <div className="team-card" key={member._id}>
+                <div className="team-card__image-wrapper">
+                  {member.image?.url && <Image src={member.image.url} alt={member.image.alt || `${member.name}, ${member.role}`} width={500} height={500} />}
+                  {member.introVideoUrl && <a className="team-card__play" aria-label={`Play introduction video for ${member.name}`} href={member.introVideoUrl} target="_blank" rel="noopener noreferrer"><Play /></a>}
+                </div>
+                <div className="team-card__info"><span className="team-card__role">{member.role}</span><h3 className="team-card__name">{member.name}</h3></div>
               </div>
-              <div className="team-card__info">
-                <span className="team-card__role">Founder &amp; CEO</span>
-                <h3 className="team-card__name"></h3>
-              </div>
-            </div>
-
-            {/**/}
-            <div className="team-card">
-              <div className="team-card__image-wrapper">
-                <Image
-                  src="/images/supriya.jpg"
-                  alt="lucky , Pre-Sales"
-                  loading="lazy"
-                  width="500"
-                  height="500"
-                ></Image>
-                <button
-                  className="team-card__play"
-                  aria-label="Play introduction video for Bhavika Gupta"
-                >
-                  <Play></Play>
-                </button>
-              </div>
-              <div className="team-card__info">
-                <span className="team-card__role">Tech Lead</span>
-                <h3 className="team-card__name">Supriya Kumari</h3>
-              </div>
-            </div>
-
-            
-            <div className="team-card">
-              <div className="team-card__image-wrapper">
-                <Image
-                  src="/images/nishu.jpg"
-                  alt="Bhavya Kumari, HR"
-                  loading="lazy"
-                  width="500"
-                  height="500"
-                ></Image>
-                <button
-                  className="team-card__play"
-                  aria-label="Play introduction video for Bhavya Kumari"
-                >
-                  <Play></Play>
-                </button>
-              </div>
-              <div className="team-card__info">
-                <span className="team-card__role">HR</span>
-                <h3 className="team-card__name">Bhavya Kumari</h3>
-              </div>
-            </div>
-
-            {/**/}
-            <div className="team-card">
-              <div className="team-card__image-wrapper">
-                <Image
-                  src="/images/Divyanshu-Shekhar.png"
-                  alt="Divyanshu Shekhar, Marketing Director"
-                  loading="lazy"
-                  width="500"
-                  height="500"
-                ></Image>
-                <button
-                  className="team-card__play"
-                  aria-label="Play introduction video for Divyanshu Shekhar"
-                >
-                  <Play></Play>
-                </button>
-              </div>
-              <div className="team-card__info">
-                <span className="team-card__role">Marketing Director</span>
-                <h3 className="team-card__name">Divyanshu Shekhar</h3>
-              </div>
-            </div>
+            ))}
           </div>
-
-          {/**/}
           <div className="team-controls">
-            <button
-              className="team-control-btn prev"
-              id="teamPrev"
-              aria-label="Previous employee"
-            >
-              <ArrowLeft></ArrowLeft>
-            </button>
-            <button
-              className="team-control-btn next"
-              id="teamNext"
-              aria-label="Next employee"
-            >
-              <ArrowRight></ArrowRight>
-            </button>
+            <button className="team-control-btn prev" id="teamPrev" aria-label="Previous employee"><ArrowLeft /></button>
+            <button className="team-control-btn next" id="teamNext" aria-label="Next employee"><ArrowRight /></button>
           </div>
         </div>
       </div>

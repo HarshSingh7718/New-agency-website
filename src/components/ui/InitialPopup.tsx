@@ -14,8 +14,11 @@ import {
   AlertCircle,
   Loader2,
 } from "lucide-react";
+import {useSiteSettings} from "@/sanity/SiteSettingsProvider";
 
 export default function InitialPopup() {
+  const settings = useSiteSettings();
+  const popup = settings.popup;
   const [isOpen, setIsOpen] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
@@ -37,15 +40,15 @@ export default function InitialPopup() {
 
     const hasSeenPopup = sessionStorage.getItem("hasSeenInitialPopup");
 
-    if (!hasSeenPopup) {
+    if (!hasSeenPopup && popup?.enabled) {
       const timer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem("hasSeenInitialPopup", "true");
-      }, 20000);
+      }, (popup.delaySeconds || 0) * 1000);
 
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [popup?.delaySeconds, popup?.enabled]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -119,8 +122,7 @@ export default function InitialPopup() {
     }
   };
 
-  // Prevent hydration mismatch
-  if (!hasMounted) return null;
+  if (!hasMounted || !popup?.enabled) return null;
 
   return (
     <AnimatePresence>
@@ -166,9 +168,7 @@ export default function InitialPopup() {
                 <div className="rounded-2xl p-5 mb-2! !border !border-white/10 !bg-white/5 relative">
                   <Quote className="absolute top-4 left-4 !text-[var(--color-brand-magenta)] opacity-20 w-8 h-8" />
                   <p className="relative z-10 text-xs md:text-sm leading-relaxed !text-white mt-3 mb-4 font-medium">
-                    &quot;We were impressed by the attention to detail and
-                    timely delivery. The entire experience was seamless, and we
-                    would gladly work with them again&quot;
+                    “{popup.testimonialQuote}”
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full !bg-[#10B981] flex items-center justify-center !text-white font-bold text-sm">
@@ -176,14 +176,14 @@ export default function InitialPopup() {
                     </div>
                     <div>
                       <h4 className="font-semibold !text-white m-0">
-                        Dheeraj Arora
+                        {popup.testimonialName}
                       </h4>
                       <p className="text-xs !text-white/70 m-0">
-                        Founder, Interiorpreneurs
+                        {popup.testimonialRole}
                       </p>
                     </div>
                     <div className="ml-auto flex gap-0.5">
-                      {[1, 2, 3, 4, 5].map((star) => (
+                  {[1, 2, 3, 4, 5].map((star) => (
                         <Star
                           key={star}
                           size={14}
@@ -207,12 +207,7 @@ export default function InitialPopup() {
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-4 mt-2!">
-                  {[
-                    { label: "AI Solutions", value: "300+" },
-                    { label: "Countries", value: "15+" },
-                    { label: "Awards", value: "20+" },
-                    { label: "Successes", value: "750+" },
-                  ].map((stat, idx) => (
+                  {(popup.stats || []).map((stat, idx) => (
                     <div
                       key={idx}
                       className="rounded-xl p-4 !border !border-white/10 !bg-white/5 flex flex-col justify-center"
@@ -229,23 +224,23 @@ export default function InitialPopup() {
               {/* Footer Info */}
               <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <p className="font-semibold !text-white">Need Instant Help?</p>
+                  <p className="font-semibold !text-white">{popup.instantHelpLabel}</p>
                   <a
-                    href="mailto:info@rapidgrodigital.com"
+                    href={`mailto:${settings.contact.email}`}
                     className="text-sm !text-[#10B981] hover:underline"
                   >
-                    info@rapidgrodigital.com
+                    {settings.contact.email}
                   </a>
                 </div>
                 <a
-                  href="tel:+919762951896"
+                  href={settings.contact.phoneHref}
                   className="w-fit whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full !border !border-white/20 !bg-white/5 hover:!bg-white/10 transition-colors text-sm font-medium !text-[var(--color-brand-magenta)]"
                 >
                   <Phone
                     size={14}
                     className="!text-[var(--color-brand-magenta)]"
                   />
-                  +91 9762951896
+                  {settings.contact.phoneDisplay}
                 </a>
               </div>
             </div>
@@ -269,11 +264,10 @@ export default function InitialPopup() {
                       Submitted Successfully
                     </span>
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-2.5">
-                      Thank You!
+                      {popup.successTitle}
                     </h3>
                     <p className="text-white/80 text-xs md:text-sm leading-relaxed max-w-sm mb-6">
-                      Your enquiry has been received. Our team will review your
-                      project requirements and contact you shortly.
+                      {popup.successMessage}
                     </p>
                     <button
                       type="button"
@@ -299,11 +293,10 @@ export default function InitialPopup() {
                       Something went wrong
                     </span>
                     <h3 className="text-2xl font-bold text-white mb-2.5">
-                      Unable to Send
+                      {popup.errorTitle}
                     </h3>
                     <p className="text-white/80 text-xs md:text-sm leading-relaxed max-w-sm mb-6">
-                      {errorMessage ||
-                        "We couldn't submit your request right now. Please try again or reach out directly to info@rapidgrodigital.com."}
+                      {errorMessage || popup.errorMessage}
                     </p>
                     <div className="flex w-full max-w-xs gap-3">
                       <button
@@ -331,11 +324,10 @@ export default function InitialPopup() {
                   >
                     <div className="mb-4! md:mb-5!">
                       <h2 className="text-[22px] md:text-3xl font-bold mb-1.5 md:mb-2 leading-tight !text-[var(--color-brand-magenta)]">
-                        Share Your Vision & Get Instant Revert
+                        {popup.heading}
                       </h2>
                       <p className="!text-white/80 text-xs md:text-sm mt-1!">
-                        Reach our experts anytime to avail upfront insights on
-                        project overview.
+                        {popup.description}
                       </p>
                     </div>
 
@@ -352,7 +344,7 @@ export default function InitialPopup() {
                           <input
                             type="text"
                             name="fullName"
-                            placeholder="Full name *"
+                            placeholder={popup.fullNamePlaceholder}
                             required
                             value={formData.fullName}
                             onChange={handleChange}
@@ -368,7 +360,7 @@ export default function InitialPopup() {
                           <input
                             type="text"
                             name="companyName"
-                            placeholder="Company Name"
+                            placeholder={popup.companyPlaceholder}
                             value={formData.companyName}
                             onChange={handleChange}
                             maxLength={100}
@@ -385,7 +377,7 @@ export default function InitialPopup() {
                         <input
                           type="email"
                           name="email"
-                          placeholder="example@youremail.com *"
+                          placeholder={popup.emailPlaceholder}
                           required
                           value={formData.email}
                           onChange={handleChange}
@@ -401,7 +393,7 @@ export default function InitialPopup() {
                         <input
                           type="tel"
                           name="phone"
-                          placeholder="+91 Phone Number *"
+                          placeholder={popup.phonePlaceholder}
                           required
                           value={formData.phone}
                           onChange={handleChange}
@@ -412,7 +404,7 @@ export default function InitialPopup() {
 
                       <textarea
                         name="projectDetails"
-                        placeholder="How can we help you?"
+                        placeholder={popup.detailsPlaceholder}
                         rows={2}
                         value={formData.projectDetails}
                         onChange={handleChange}
@@ -442,12 +434,12 @@ export default function InitialPopup() {
                             Submitting…
                           </>
                         ) : (
-                          "Book Free Consultation"
+                          popup.submitLabel
                         )}
                       </button>
 
                       <p className="text-center text-[10px] md:text-xs !text-white/60 pt-1 md:pt-2">
-                        No spam, ever. We reply within one business day.
+                        {popup.privacyText}
                       </p>
                     </form>
                   </motion.div>

@@ -14,7 +14,15 @@ type FormStatus =
   | { kind: "success"; message: string }
   | { kind: "error"; message: string };
 
-export default function ContactForm() {
+export type ContactFormContent = {
+  firstNameLabel: string; firstNamePlaceholder: string; lastNameLabel: string; lastNamePlaceholder: string;
+  emailLabel: string; emailPlaceholder: string; phoneLabel: string; phonePlaceholder: string;
+  companyUrlLabel: string; companyUrlPlaceholder: string; detailsLabel: string; detailsPlaceholder: string;
+  submitLabel: string; sendingLabel: string; consentText: string; successTitle: string; successMessage: string;
+  errorTitle: string; errorMessage: string;
+};
+
+export default function ContactForm({content}: {content: ContactFormContent}) {
   const [status, setStatus] = useState<FormStatus>({
     kind: "idle",
     message: "",
@@ -80,7 +88,7 @@ export default function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
 
-    setStatus({ kind: "loading", message: "Sending your message…" });
+    setStatus({ kind: "loading", message: content.sendingLabel });
 
     try {
       const response = await fetch("/api/contact", {
@@ -108,7 +116,7 @@ export default function ContactForm() {
       setStatus({
         kind: "success",
         message:
-          "Your message has been sent successfully. Our team can now review your project brief and will try to contact you as soon as possible.",
+          content.successMessage,
       });
     } catch (error) {
       setStatus({
@@ -116,7 +124,7 @@ export default function ContactForm() {
         message:
           error instanceof Error
             ? error.message
-            : "Unable to send your message. Please try again.",
+            : content.errorMessage,
       });
     }
   }
@@ -128,77 +136,77 @@ export default function ContactForm() {
       <form className="cform" onSubmit={handleSubmit}>
         <div className="contact-form-grid">
           <div className="field">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName">{content.firstNameLabel}</label>
             <input
               id="firstName"
               name="firstName"
               type="text"
               autoComplete="given-name"
-              placeholder="Your first name"
+              placeholder={content.firstNamePlaceholder}
               required
               maxLength={80}
             />
           </div>
 
           <div className="field">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName">{content.lastNameLabel}</label>
             <input
               id="lastName"
               name="lastName"
               type="text"
               autoComplete="family-name"
-              placeholder="Your last name"
+              placeholder={content.lastNamePlaceholder}
               required
               maxLength={80}
             />
           </div>
 
           <div className="field">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">{content.emailLabel}</label>
             <input
               id="email"
               name="email"
               type="email"
               autoComplete="email"
               inputMode="email"
-              placeholder="you@company.com"
+              placeholder={content.emailPlaceholder}
               required
               maxLength={254}
             />
           </div>
 
           <div className="field">
-            <label htmlFor="phone">Phone Number</label>
+            <label htmlFor="phone">{content.phoneLabel}</label>
             <input
               id="phone"
               name="phone"
               type="tel"
               autoComplete="tel"
-              placeholder="+91 98765 43210"
+              placeholder={content.phonePlaceholder}
               maxLength={40}
             />
           </div>
         </div>
 
         <div className="field">
-          <label htmlFor="companyUrl">Company URL</label>
+          <label htmlFor="companyUrl">{content.companyUrlLabel}</label>
           <input
             id="companyUrl"
             name="companyUrl"
             type="url"
             inputMode="url"
-            placeholder="https://yourcompany.com"
+            placeholder={content.companyUrlPlaceholder}
             maxLength={500}
           />
         </div>
 
         <div className="field">
-          <label htmlFor="projectDetails">Project Details</label>
+          <label htmlFor="projectDetails">{content.detailsLabel}</label>
           <textarea
             id="projectDetails"
             name="projectDetails"
             rows={6}
-            placeholder="Tell us what you want to build, your goals, important features and timeline."
+            placeholder={content.detailsPlaceholder}
             required
             maxLength={5000}
             value={chatBrief}
@@ -226,15 +234,14 @@ export default function ContactForm() {
             disabled={status.kind === "loading"}
             aria-busy={status.kind === "loading"}
           >
-            {status.kind === "loading" ? "Sending…" : "Send Message"}
+            {status.kind === "loading" ? content.sendingLabel : content.submitLabel}
             <span className="arrow" aria-hidden="true">
               ↗
             </span>
           </button>
 
           <p className="contact-consent">
-            By sending this form, you agree that the submitted information may be
-            used to respond to your enquiry.
+            {content.consentText}
           </p>
         </div>
       </form>
@@ -280,8 +287,8 @@ export default function ContactForm() {
               </p>
               <h2 id="contact-alert-title">
                 {status.kind === "success"
-                  ? "Thanks — we received it."
-                  : "We couldn't send that message."}
+                  ? content.successTitle
+                  : content.errorTitle}
               </h2>
               <p id="contact-alert-message">{status.message}</p>
             </div>

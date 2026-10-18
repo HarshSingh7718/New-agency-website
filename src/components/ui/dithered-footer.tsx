@@ -1,23 +1,17 @@
 "use client";
 
-import { useRef, useState, type CSSProperties, type FormEvent, type PointerEvent, type ReactNode } from "react";
+import { useRef, type CSSProperties, type PointerEvent, type ReactNode } from "react";
 
 export type FooterLink = { label: string; href: string; icon?: ReactNode };
 export type FooterColumn = { title: string; links: FooterLink[] };
-export type FooterSocial = { label: string; href: string; icon: ReactNode };
 
 export type DitheredFooterProps = {
     logo?: ReactNode;
-    brand?: string;
-    brandHref?: string;
-    tagline?: string;
-    columns?: FooterColumn[];
-    socials?: FooterSocial[];
-    legal?: FooterLink[];
-    copyright?: string;
-    status?: FooterLink | null;
-    accent?: string;
-    onSubscribe?: (email: string) => void | Promise<void>;
+    largeText: string;
+    columns: FooterColumn[];
+    legal: FooterLink[];
+    copyright: string;
+    accent: string;
 };
 
 const DITHER =
@@ -58,37 +52,16 @@ const STYLES = `
 `;
 
 const focus = "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--df-accent)]";
-const coarse = "[@media(pointer:coarse)]:inline-flex [@media(pointer:coarse)]:min-h-11 [@media(pointer:coarse)]:items-center";
-
 export default function DitheredFooter({
     logo,
-    brand = "RapidGro",
-    brandHref = "/",
-    tagline = "Websites, ecommerce, SaaS and digital marketing built for growth.",
-    columns = [],
-    socials = [],
-    legal = [],
-    copyright = `© ${new Date().getFullYear()} RapidGroDigital. All rights reserved.| Made with ❤️ by Harsh`,
-    status = null,
-    accent = "#E91E8C",
-    onSubscribe,
+    largeText,
+    columns,
+    legal,
+    copyright,
+    accent,
 }: DitheredFooterProps) {
-    const [email, setEmail] = useState("");
-    const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
     const field = useRef<HTMLDivElement>(null);
     const frame = useRef(0);
-
-    const submit = async (e: FormEvent) => {
-        e.preventDefault();
-        setState("sending");
-        try {
-            await onSubscribe?.(email);
-            setState("done");
-            setEmail("");
-        } catch {
-            setState("error");
-        }
-    };
 
     const onMove = (e: PointerEvent<HTMLDivElement>) => {
         if (e.pointerType !== "mouse" || !field.current) return;
@@ -106,9 +79,6 @@ export default function DitheredFooter({
         cancelAnimationFrame(frame.current);
         field.current?.classList.remove("df-lit");
     };
-
-    const toTop = () =>
-        window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
 
     return (
         <footer
@@ -143,7 +113,7 @@ export default function DitheredFooter({
                     <div className="df-dots" />
                 </div>
                 <p className="df-mark pointer-events-none absolute -bottom-[0.05em] mb-4! md:mb-8! left-1/2 -translate-x-1/2 md:left-5 md:translate-x-0 w-full text-center md:text-left select-none text-[clamp(2rem,16vw,4rem)] md:text-[clamp(4rem,18vw,13rem)] font-bold leading-[0.8] tracking-[-0.06em] text-[#140820]" style={{ textShadow: "0 0 1px rgba(255,255,255,0.1)" }}>
-                    rapidgrodigital
+                    {largeText}
                 </p>
             </div>
 

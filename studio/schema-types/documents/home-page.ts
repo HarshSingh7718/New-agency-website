@@ -1,0 +1,155 @@
+import {defineArrayMember, defineField, defineType} from "sanity";
+
+export const homePageType = defineType({
+  name: "homePage",
+  title: "Home page",
+  type: "document",
+  groups: [
+    {name: "seo", title: "SEO"},
+    {name: "hero", title: "Hero", default: true},
+    {name: "sections", title: "Sections"},
+  ],
+  fields: [
+    defineField({name: "seo", type: "seo", group: "seo", validation: (rule) => rule.required()}),
+    defineField({
+      name: "hero",
+      type: "object",
+      group: "hero",
+      fields: [
+        defineField({name: "title", type: "string", validation: (rule) => rule.required()}),
+        defineField({name: "accentTitle", type: "string", validation: (rule) => rule.required()}),
+        defineField({name: "description", type: "text", rows: 4, validation: (rule) => rule.required()}),
+        defineField({
+          name: "video",
+          type: "file",
+          description: "Use only for a short, optimized hero clip. Use Mux, Vimeo, or YouTube for longer video.",
+          options: {accept: "video/mp4"},
+        }),
+        defineField({name: "poster", type: "accessibleImage"}),
+        defineField({name: "primaryCta", type: "link", validation: (rule) => rule.required()}),
+        defineField({name: "secondaryCta", type: "link", validation: (rule) => rule.required()}),
+        defineField({name: "showSocialLinks", type: "boolean", initialValue: true}),
+      ],
+    }),
+    defineField({
+      name: "aboutIntro",
+      type: "object",
+      group: "sections",
+      fields: [
+        defineField({name: "label", type: "string", validation: (rule) => rule.required()}),
+        defineField({name: "title", type: "string", validation: (rule) => rule.required()}),
+        defineField({name: "description", type: "text", rows: 5, validation: (rule) => rule.required()}),
+        defineField({name: "image", type: "accessibleImage", validation: (rule) => rule.required()}),
+        defineField({name: "cta", type: "link", validation: (rule) => rule.required()}),
+      ],
+    }),
+    defineField({name: "portfolioSection", type: "sectionHeading", group: "sections"}),
+    defineField({name: "portfolioCta", type: "link", group: "sections"}),
+    defineField({
+      name: "clientLogosSection",
+      title: "Client logo section heading",
+      type: "sectionHeading",
+      group: "sections",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "clientLogos",
+      title: "Client logo strip",
+      type: "array",
+      group: "sections",
+      description: "Logos appear in this order in the scrolling client section.",
+      validation: (rule) => rule.max(40),
+      of: [defineArrayMember({
+        name: "clientLogo",
+        title: "Client logo",
+        type: "object",
+        fields: [
+          defineField({name: "name", title: "Company name", type: "string", validation: (rule) => rule.required()}),
+          defineField({name: "logo", type: "accessibleImage", validation: (rule) => rule.required()}),
+          defineField({
+            name: "backgroundColor",
+            title: "Card background color",
+            type: "string",
+            initialValue: "#F4F0F7",
+            description: "Use a six-digit hex color, for example #F4F0F7.",
+            validation: (rule) => rule.required().regex(/^#[0-9a-fA-F]{6}$/, {name: "hex color"}),
+          }),
+        ],
+        preview: {select: {title: "name", media: "logo"}},
+      })],
+    }),
+    defineField({name: "servicesSection", type: "sectionHeading", group: "sections"}),
+    defineField({name: "technologySection", type: "sectionHeading", group: "sections"}),
+    defineField({
+      name: "statsSection",
+      type: "object",
+      group: "sections",
+      fields: [
+        defineField({name: "ariaLabel", type: "string"}),
+        defineField({
+          name: "items",
+          type: "array",
+          validation: (rule) => rule.required().min(1).max(6),
+          of: [defineArrayMember({
+            type: "object",
+            fields: [
+              defineField({name: "value", type: "number", validation: (rule) => rule.required().min(0)}),
+              defineField({name: "suffix", type: "string"}),
+              defineField({name: "label", type: "string", validation: (rule) => rule.required()}),
+            ],
+          })],
+        }),
+      ],
+    }),
+    defineField({
+      name: "approachSection",
+      type: "object",
+      group: "sections",
+      fields: [
+        defineField({name: "eyebrow", type: "string", validation: (rule) => rule.required()}),
+        defineField({name: "title", type: "string", validation: (rule) => rule.required()}),
+        defineField({name: "accentTitle", type: "string", validation: (rule) => rule.required()}),
+        defineField({
+          name: "steps",
+          type: "array",
+          validation: (rule) => rule.required().min(1).max(8),
+          of: [defineArrayMember({
+            type: "object",
+            fields: [
+              defineField({name: "title", type: "string", validation: (rule) => rule.required()}),
+              defineField({name: "description", type: "text", rows: 4, validation: (rule) => rule.required()}),
+            ],
+          })],
+        }),
+      ],
+    }),
+    defineField({
+      name: "testimonialsSection",
+      type: "object",
+      group: "sections",
+      fields: [
+        defineField({name: "eyebrow", type: "string"}),
+        defineField({name: "title", type: "string"}),
+        defineField({name: "accentTitle", type: "string"}),
+        defineField({name: "description", type: "text", rows: 3}),
+        defineField({name: "ratingLabel", type: "string"}),
+        defineField({name: "rating", type: "number"}),
+        defineField({name: "reviewCountLabel", type: "string"}),
+      ],
+    }),
+    defineField({
+      name: "faqSection",
+      type: "object",
+      group: "sections",
+      fields: [
+        defineField({name: "eyebrow", type: "string"}),
+        defineField({name: "title", type: "string"}),
+        defineField({name: "accentTitle", type: "string"}),
+        defineField({name: "description", type: "text", rows: 4}),
+        defineField({name: "helpTitle", type: "string"}),
+        defineField({name: "helpLink", type: "link"}),
+      ],
+    }),
+  ],
+  preview: {prepare: () => ({title: "Home page"})},
+});

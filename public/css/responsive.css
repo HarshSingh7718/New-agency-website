@@ -196,7 +196,7 @@
 
 
 @media (max-width: 768px) {
-  :root { --gutter: 18px; --header-h: 88px; }
+  :root { --gutter: 18px; --header-h: 88px; --navbar-h: 116px; }
   
   /* Increased mobile navbar height */
   .site-header .bar { padding: 16px var(--gutter); }

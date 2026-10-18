@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
+import {getSiteSettings} from "@/sanity/lib/content";
 
 export const runtime = "nodejs";
 
@@ -34,7 +35,7 @@ function escapeHtml(value: string): string {
     .replaceAll("'", "&#039;");
 }
 
-function buildEmailContent(message: ContactMessage): EmailContent {
+function buildEmailContent(message: ContactMessage, brandName: string): EmailContent {
   const fullName = `${message.firstName} ${message.lastName}`.trim();
   const safeDetails = escapeHtml(message.projectDetails).replaceAll("\n", "<br />");
 
@@ -42,7 +43,7 @@ function buildEmailContent(message: ContactMessage): EmailContent {
     subject: `New website enquiry from ${fullName}`.slice(0, 180),
     html: `
       <div style="font-family:Arial,sans-serif;line-height:1.6;color:#1A0B2E">
-        <h2>New RapidGroDigital enquiry</h2>
+        <h2>New ${escapeHtml(brandName)} enquiry</h2>
         <p><strong>Name:</strong> ${escapeHtml(fullName)}</p>
         <p><strong>Email:</strong> ${escapeHtml(message.email)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(message.phone || "Not provided")}</p>
@@ -53,7 +54,7 @@ function buildEmailContent(message: ContactMessage): EmailContent {
       </div>
     `,
     text: [
-      "New RapidGroDigital enquiry",
+      `New ${brandName} enquiry`,
       `Name: ${fullName}`,
       `Email: ${message.email}`,
       `Phone: ${message.phone || "Not provided"}`,
@@ -68,6 +69,7 @@ function buildEmailContent(message: ContactMessage): EmailContent {
 async function sendWithZoho(
   message: ContactMessage,
   content: EmailContent,
+  brandName: string,
 ): Promise<void> {
   const zohoUser = process.env.ZOHO_USER?.trim();
   const zohoAppPassword = process.env.ZOHO_APP_PASSWORD
@@ -96,7 +98,7 @@ async function sendWithZoho(
   // Send inquiry to owner with Reply-To set to the client's email so the owner
   // can directly click "Reply" in their email client to talk with the client.
   await transporter.sendMail({
-    from: `RapidGroDigital Website <${zohoUser}>`,
+    from: `${brandName} Website <${zohoUser}>`,
     to,
     replyTo: fullName ? `"${fullName}" <${message.email}>` : message.email,
     subject: content.subject,
@@ -173,11 +175,13 @@ export async function POST(request: Request) {
     );
   }
 
-  const content = buildEmailContent(message);
+  const settings = await getSiteSettings();
+  const brandName = clean(settings?.brandName, 80).replace(/[\r\n<>\"]/g, "") || "Website";
+  const content = buildEmailContent(message, brandName);
 
   try {
     // Deliver website enquiries via Zoho Mail directly to the owner inbox
-    await sendWithZoho(message, content);
+    await sendWithZoho(message, content, brandName);
   } catch (error) {
     console.error("Contact delivery error:", error);
 

@@ -1,10 +1,9 @@
 'use client';
 import { ReactLenis } from 'lenis/react';
 import { useTransform, motion, useScroll, MotionValue } from 'motion/react';
-import { useRef, forwardRef } from 'react';
+import { useRef } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
 
 export interface ProjectData {
   title: string;
@@ -103,10 +102,12 @@ export const Card = ({
               className={`w-full h-full`}
               style={{ scale: imageScale }}
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
-                className='absolute inset-0 w-full h-full object-cover'
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                className='object-cover'
               />
             </motion.div>
           </div>
@@ -120,7 +121,7 @@ interface StackingCardsProps {
   projects: ProjectData[];
 }
 
-const StackingCards = forwardRef<HTMLElement, StackingCardsProps>(({ projects }, ref) => {
+const StackingCards = ({ projects }: StackingCardsProps) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -146,8 +147,6 @@ const StackingCards = forwardRef<HTMLElement, StackingCardsProps>(({ projects },
       </div>
     </ReactLenis>
   );
-});
-
-StackingCards.displayName = 'StackingCards';
+};
 
 export default StackingCards;

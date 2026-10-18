@@ -4,12 +4,7 @@ import { FormEvent, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Bot, MessageCircle, Send, X } from "lucide-react";
-
-const initialSuggestedReplies = [
-  "What services do you offer?",
-  "How long does a project take?",
-  "Can you redesign my website?",
-];
+import {useSiteSettings} from "@/sanity/SiteSettingsProvider";
 
 type Message = {
   role: "user" | "assistant";
@@ -23,10 +18,12 @@ type ChatResponse = {
   error?: string;
 };
 
-const welcome =
-  "Hi — I’m RapidGro’s AI assistant. Ask about services, timelines, redesigns, tech stacks or how to start your project.";
-
 export default function AgencyChatbot() {
+  const settings = useSiteSettings();
+  const chat = settings.chatbot;
+  const initialSuggestedReplies = chat?.suggestedReplies || [];
+  const welcome = chat?.welcome || "";
+  const unavailableMessage = chat?.unavailableMessage || "Assistant unavailable.";
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -49,10 +46,12 @@ export default function AgencyChatbot() {
         .slice(1)
         .map(
           (message) =>
-            `${message.role === "user" ? "Visitor" : "RapidGro assistant"}: ${message.content}`,
+            `${message.role === "user" ? "Visitor" : chat?.name || settings.brandName}: ${message.content}`,
         ),
     ].join("\n");
-  }, [messages]);
+  }, [chat?.name, messages, settings.brandName]);
+
+  if (!chat?.enabled) return null;
 
   async function ask(question: string) {
     const trimmed = question.trim();
@@ -83,7 +82,7 @@ export default function AgencyChatbot() {
       const result = (await response.json()) as ChatResponse;
 
       if (!response.ok) {
-        throw new Error(result.error || "The assistant is temporarily unavailable.");
+        throw new Error(result.error || unavailableMessage);
       }
 
       const replies = Array.isArray(result.suggestedReplies)
@@ -113,12 +112,8 @@ export default function AgencyChatbot() {
           content:
             error instanceof Error
               ? error.message
-              : "The assistant is temporarily unavailable.",
-          suggestedReplies: [
-            "What services do you offer?",
-            "Can you help redesign my website?",
-            "How do I contact the team?",
-          ],
+              : unavailableMessage,
+          suggestedReplies: initialSuggestedReplies,
         },
       ]);
     } finally {
@@ -159,16 +154,16 @@ export default function AgencyChatbot() {
       {open && (
         <section
           className="agency-chat__panel"
-          aria-label="RapidGroDigital AI assistant"
+          aria-label={`${settings.brandName} AI assistant`}
         >
           <header className="agency-chat__header">
             <div className="agency-chat__identity">
               <span className="agency-chat__avatar" aria-hidden="true">
-                <Image src="/images/Agency-logo-bg-removed.png" alt="RapidGro logo" width={45} height={45} />
+                {settings.logo?.url && <Image src={settings.logo.url} alt={settings.logo.alt || settings.brandName} width={45} height={45} />}
               </span>
               <div>
-                <strong>RapidGro AI</strong>
-                <span>Powered by Groq</span>
+                <strong>{chat.name}</strong>
+                <span>{chat.providerLabel}</span>
               </div>
             </div>
 
@@ -242,21 +237,21 @@ export default function AgencyChatbot() {
               className="agency-chat__handoff"
               onClick={continueToContact}
             >
-              Continue this brief in contact form
+              {chat.handoffLabel}
               <span aria-hidden="true">↗</span>
             </button>
           )}
 
           <form className="agency-chat__composer" onSubmit={handleSubmit}>
             <label className="sr-only" htmlFor="agency-chat-input">
-              Ask RapidGroDigital
+              {chat.inputLabel}
             </label>
             <input
               ref={inputRef}
               id="agency-chat-input"
               value={input}
               onChange={(event) => setInput(event.target.value)}
-              placeholder="Ask about your project…"
+              placeholder={chat.inputPlaceholder}
               maxLength={1200}
               autoComplete="off"
             />
@@ -270,7 +265,7 @@ export default function AgencyChatbot() {
           </form>
 
           <p className="agency-chat__notice">
-            AI can make mistakes. Confirm project scope and pricing with the team.
+            {chat.notice}
           </p>
         </section>
       )}
@@ -285,11 +280,11 @@ export default function AgencyChatbot() {
       >
         <div className="flex items-center gap-2 transition-transform duration-300 group-hover:-translate-y-14">
           {open ? <X size={24} /> : <MessageCircle size={24} />}
-          {!open && <span>Ask RapidGro</span>}
+          {!open && <span>{chat.launcherLabel}</span>}
         </div>
         <div className="absolute inset-0 flex items-center justify-center gap-2 transition-transform duration-300 translate-y-14 group-hover:translate-y-0">
           {open ? <X size={24} /> : <MessageCircle size={24} />}
-          {!open && <span>Ask RapidGro</span>}
+          {!open && <span>{chat.launcherLabel}</span>}
         </div>
       </button>
     </div>

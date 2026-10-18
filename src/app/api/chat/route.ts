@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import {
-  agencySystemPrompt,
+  buildAgencySystemPrompt,
   fallbackAgencyAnswer,
 } from "@/lib/agency-knowledge";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
+import {getSiteSettings} from "@/sanity/lib/content";
 
 export const runtime = "nodejs";
 
@@ -127,7 +128,13 @@ export async function POST(request: Request) {
     );
   }
 
-  const fallback = fallbackAgencyAnswer(message);
+  const settings = await getSiteSettings();
+  const chat = settings?.chatbot;
+  if (!settings || !chat?.knowledge || !chat.suggestedReplies?.length) {
+    return NextResponse.json({error: "The assistant content is not configured."}, {status: 503});
+  }
+  const fallback = fallbackAgencyAnswer(chat.suggestedReplies);
+  const agencySystemPrompt = buildAgencySystemPrompt(settings.brandName, chat.knowledge);
   const groqKey = process.env.GROQ_API_KEY;
   const model = process.env.GROQ_MODEL || "openai/gpt-oss-20b";
 

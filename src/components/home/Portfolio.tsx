@@ -1,78 +1,23 @@
-import StackingCards, { ProjectData } from "@/components/ui/stacking-card";
+import StackingCards, {type ProjectData} from "@/components/ui/stacking-card";
+import type {Project} from "@/sanity/lib/types";
 
-const projects: ProjectData[] = [
-  {
-    title: "DataDank",
-    description: "A comprehensive data engineering learning and interview preparation platform. Features structured 90-day roadmaps, interactive coding exercises, and real-world project workflows built to accelerate tech careers.",
-    link: "https://datadank.com",
-    image: "/images/portfolio/datadank.png",
-    color: "#16110e",
-    accentColor: "#F97316",
-    textOnDark: true,
-    tag: "EdTech · Data Engineering"
-  },
-  {
-    title: "Physics Wallah",
-    description: "An innovative EdTech platform delivering high-quality, accessible education. We built scalable web solutions to support millions of concurrent students across India.",
-    link: "https://www.physicswallah.in/",
-    image: "/images/portfolio/physics-wallah.png",
-    color: "#1c0b2e",
-    accentColor: "#FF4DB8",
-    textOnDark: true,
-    tag: "EdTech · Web"
-  },
-  {
-    title: "Velora Jewellery",
-    description: "A premium, elegant e-commerce experience for minimal and meaningful jewelry. Showcases timeless designs with a luxurious user interface and a smooth, engaging buying journey.",
-    link: "#",
-    image: "/images/portfolio/velora.jpg",
-    color: "#0f0a1e",
-    accentColor: "#E91E8C",
-    textOnDark: true,
-    tag: "Ecommerce · Jewelry"
-  },
-  {
-    title: "Northwave Gear",
-    description: "A rugged, high-performance outdoor gear store built for real adventurers. The platform highlights durable and lightweight products with an immersive, conversion-focused design.",
-    link: "#",
-    image: "/images/portfolio/northwave.jpg",
-    color: "#1c0b2e",
-    accentColor: "#FF4DB8",
-    textOnDark: true,
-    tag: "Ecommerce · Outdoor Gear"
-  }
-];
-
-export default function Portfolio() {
+type Heading = {title: string; accentTitle?: string; description?: string};
+export default function Portfolio({heading, projects, cta}: {heading: Heading; projects: Project[]; cta: {label: string; href: string}}) {
+  const cards: ProjectData[] = projects.map((project) => ({
+    title: project.title, description: project.description, link: project.url,
+    image: project.image?.url || "", color: project.cardColor, accentColor: project.accentColor,
+    textOnDark: project.textOnDark, tag: project.tag,
+  }));
   return (
     <section className="rg-portfolio relative" id="work" aria-labelledby="work-h">
       <div className="container relative z-20 md:pt-16">
         <div className="rg-portfolio__head reveal">
-          <h2 id="work-h">
-            Our success stories showcasing{" "}
-            <span className="serif">innovation in action.</span>
-          </h2>
-          <p
-            className="body-text text-center mx-auto max-w-[680px]"
-            style={{ color: "var(--c-body)" }}
-          >
-            Explore high-impact web, ecommerce, and SaaS solutions we&apos;ve
-            delivered for brands across industries.
-          </p>
+          <h2 id="work-h">{heading.title} {heading.accentTitle && <span className="serif">{heading.accentTitle}</span>}</h2>
+          {heading.description && <p className="body-text text-center mx-auto max-w-[680px]" style={{color: "var(--c-body)"}}>{heading.description}</p>}
         </div>
       </div>
-
-      <div className="mt-18! md:mt-[-4vh] lg:mt-[-8vh]">
-        <StackingCards projects={projects} />
-      </div>
-
-      <div className="container pb-5 relative z-20 mt-[5vh]! lg:mt-[-50vh]">
-        <div className="rg-portfolio__foot reveal">
-          <a className="btn dark" href="/contact" data-magnetic>
-            Start your project <span className="arrow">&#x2197;</span>
-          </a>
-        </div>
-      </div>
+      <div className="mt-18! md:mt-[-4vh] lg:mt-[-8vh]"><StackingCards projects={cards} /></div>
+      <div className="container pb-5 relative z-20 mt-[5vh]! lg:mt-[-50vh]"><div className="rg-portfolio__foot reveal"><a className="btn dark" href={cta.href} data-magnetic>{cta.label}<span className="arrow">↗</span></a></div></div>
     </section>
   );
 }

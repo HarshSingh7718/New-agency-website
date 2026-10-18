@@ -18,7 +18,7 @@
 
 /* ---- 1024 : nav collapses to drawer ---- */
 @media (max-width: 1024px) {
-  :root { --header-h: 76px; }
+  :root { --header-h: 110px; --navbar-h: 110px; --navbar-spacing: 110px; }
   .main-nav, .header-cta { display: none; }
   .burger { display: inline-flex; }
 
@@ -196,7 +196,7 @@
 
 
 @media (max-width: 768px) {
-  :root { --gutter: 18px; --header-h: 88px; }
+  :root { --gutter: 18px; --header-h: 116px; --navbar-h: 116px; --navbar-spacing: 116px; }
   
   /* Increased mobile navbar height */
   .site-header .bar { padding: 16px var(--gutter); }
