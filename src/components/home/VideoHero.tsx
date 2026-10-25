@@ -44,12 +44,12 @@ export default function VideoHero({content, socialLinks, stats}: {content: Video
         </div>
       )}
 
-      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12 pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 lg:pb-20 flex flex-col justify-end items-start text-left">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] max-w-4xl mb-5 sm:mb-6 text-white">
+      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-20! sm:px-10 lg:px-12 pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 lg:pb-20 flex flex-col justify-end items-start text-left">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] max-w-4xl mb-5! sm:mb-6 text-white">
           {content.title}<br />
           <span className="accent-pink font-normal italic text-[#FF4DB8]" style={{fontFamily: "var(--font-accent, serif)", textShadow: "0 0 28px rgba(255,77,184,.4)"}}>{content.accentTitle}</span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl font-normal max-w-2xl leading-relaxed mb-12 sm:mb-10 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.6)]">{content.description}</p>
+        <p className="text-base sm:text-lg md:text-xl font-normal max-w-2xl leading-relaxed mb-12! sm:mb-10 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.6)]">{content.description}</p>
         <div className="flex flex-wrap items-center gap-4 sm:gap-5 w-full sm:w-auto">
           <Link href={content.primaryCta.href} className="group inline-flex items-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base bg-[#E91E8C] text-white transition hover:scale-[1.03]">
             {content.primaryCta.label}<ArrowUpRight size={18} />
@@ -58,7 +58,7 @@ export default function VideoHero({content, socialLinks, stats}: {content: Video
             {content.secondaryCta.label}<ChevronDown size={18} className="text-[#FF4DB8]" />
           </a>
         </div>
-        <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-[#FF4DB8]/30 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 w-full max-w-3xl">
+        <div className="mt-10! sm:mt-12 pt-6! sm:pt-8 border-t border-[#FF4DB8]/30 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 w-full max-w-3xl">
           {stats.map((stat, index) => (
             <div key={stat.label}>
               <div className={`text-2xl sm:text-3xl font-extrabold ${index % 2 ? "text-[#FF4DB8]" : "text-white"}`}>{stat.value}{stat.suffix}</div>
