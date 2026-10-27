@@ -27,7 +27,7 @@ export default function AboutUs({content}: {content: Content}) {
   const headingWords = content.title.split(" ");
   const words = content.description.split(" ");
   return (
-    <section className="pt-24 pb-12! md:pb-24 lg:py-32 bg-white relative overflow-hidden" id="about-us">
+    <section className="pt-22 pb-12! md:pb-24 lg:py-32 bg-white relative overflow-hidden" id="about-us">
       <style>{`.scroll-reveal-text span{opacity:calc(.15 + clamp(0,(var(--p,0) - var(--i))*6,.85));transition:opacity .08s ease-out}`}</style>
       <div className="container mx-auto px-6 lg:px-12 max-w-[1400px]">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 lg:gap-24 items-center">
