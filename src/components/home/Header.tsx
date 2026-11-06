@@ -48,11 +48,26 @@ export default function Header() {
             {settings.navigation.map((item) =>
               item.groups?.length ? (
                 <div className="has-children" key={item._key || item.label}>
-                  <a href={item.href} className={pathname === item.href ? "is-active" : ""} aria-haspopup="true">
+                  <a
+                    href={item.href}
+                    className={pathname === item.href ? "is-active" : ""}
+                    aria-haspopup="true"
+                    onClick={(e) => {
+                      if (item.href?.startsWith("/#") || item.href === "#") {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
                     {item.label}
                     <ChevronDown size={14} strokeWidth={2.25} aria-hidden="true" />
                   </a>
-                  <div className={`dropdown ${item.groups.length > 1 ? "mega" : ""}`}>
+                  <div
+                    className={`dropdown ${item.groups.length > 1 ? "mega" : ""} ${
+                      item.label?.toLowerCase() === "industries" || item.groups.length > 3
+                        ? "mega-industries"
+                        : ""
+                    }`}
+                  >
                     {item.groups.map((group) => (
                       <div className="mega-col" key={group._key || group.title}>
                         {group.title && <div className="mega-title">{group.title}</div>}

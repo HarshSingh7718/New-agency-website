@@ -206,6 +206,77 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
 .dropdown.align-center { left: 50%; right: auto; transform: translateX(-50%) translateY(10px); margin-left: -200px; }
 .main-nav .has-children:hover .dropdown.align-center, .main-nav .has-children.is-open .dropdown.align-center { transform: translateX(-50%) translateY(0); }
 
+/* ---- Mega Menu: Industries 3-column multi-row grid ---- */
+.dropdown::before { content: ""; position: absolute; top: -20px; left: 0; right: 0; height: 20px; }
+
+.dropdown.mega.mega-industries {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 280px));
+  column-gap: 36px;
+  row-gap: 28px;
+  padding: 30px 32px;
+  width: max-content;
+  max-width: min(960px, calc(100vw - 40px));
+  left: auto;
+  right: -180px;
+  margin-left: 0;
+  transform: translateY(10px);
+  background: var(--c-white);
+  border: 1px solid var(--c-line-2);
+  border-radius: var(--r-card);
+  box-shadow: 0 24px 60px rgba(26, 11, 46, 0.12), 0 4px 16px rgba(26, 11, 46, 0.04);
+}
+.main-nav .has-children:hover .dropdown.mega.mega-industries,
+.main-nav .has-children.is-open .dropdown.mega.mega-industries {
+  transform: translateY(0);
+}
+.dropdown.mega.mega-industries .mega-col {
+  min-width: 0;
+  max-width: none;
+  gap: 3px;
+}
+.dropdown.mega.mega-industries .mega-title {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-green-link);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding: 0 10px;
+  margin-bottom: 8px;
+}
+.dropdown.mega.mega-industries a {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  gap: 8px;
+  border-radius: 8px;
+  color: var(--c-ink);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.dropdown.mega.mega-industries a:hover {
+  background: var(--c-icon-bg);
+  color: var(--c-green-deep);
+  transform: translateX(3px);
+}
+.dropdown.mega.mega-industries .t {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: inherit;
+}
+
+@media (max-width: 1280px) and (min-width: 1025px) {
+  .dropdown.mega.mega-industries {
+    grid-template-columns: repeat(3, minmax(210px, 250px));
+    column-gap: 24px;
+    row-gap: 20px;
+    padding: 24px 26px;
+    right: -100px;
+  }
+}
+
 .header-cta { flex: none; }
 
 .burger { display: none; width: 46px; height: 46px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }

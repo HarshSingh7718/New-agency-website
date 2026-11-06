@@ -73,9 +73,41 @@ const siteSettings = {
     keyed("nav-clients", {label: "Our clients", href: "/#testimonials"}),
     keyed("nav-contact", {label: "Contact", href: "/contact"}),
     keyed("nav-industries", {label: "Industries", href: "/#industries", groups: [
-      keyed("commerce", {title: "E-COMMERCE", items: [link("E-commerce Apps", "/contact", "cart"), link("Marketplace Platforms", "/contact", "building")]}),
-      keyed("business", {title: "BUSINESS SYSTEMS", items: [link("CRM Software", "/contact", "users"), link("ERP Software", "/contact", "server"), link("Inventory Management", "/contact", "clipboard")]}),
-      keyed("social", {title: "SOCIAL", items: [link("Chat Applications", "/contact", "message"), link("Community Platforms", "/contact", "share")]}),
+      keyed("ecommerce", {title: "E-COMMERCE", items: [
+        link("Accounting Software Development", "/contact"),
+        link("Amazon Clone App Development Company", "/contact"),
+        link("Custom E-commerce App Development Company", "/contact"),
+        link("Custom E-commerce Software Development Company", "/contact"),
+        link("Custom Marketplace App Development Company", "/contact"),
+        link("E-commerce App & Website Development Company", "/contact"),
+        link("Testing", "/contact"),
+      ]}),
+      keyed("education", {title: "EDUCATION", items: [
+        link("Learning Management System (LMS) Development", "/contact"),
+        link("School Management Software Development", "/contact"),
+        link("Student Information System (SIS) Development", "/contact"),
+      ]}),
+      keyed("enterprise", {title: "ENTERPRISE", items: [
+        link("CRM Software Development", "/contact"),
+        link("ERP Software Development", "/contact"),
+        link("HRM Software Development", "/contact"),
+        link("HRMS Software Development", "/contact"),
+        link("Inventory Management Software Development", "/contact"),
+      ]}),
+      keyed("food-beverage", {title: "FOOD & BEVERAGE", items: [
+        link("Custom Grocery Delivery App Development Company", "/contact"),
+        link("Custom Restaurant Management Software Development Company", "/contact"),
+        link("Food Delivery App Development Company", "/contact"),
+      ]}),
+      keyed("real-estate", {title: "REAL ESTATE", items: [
+        link("Custom Real Estate Platform Solutions", "/contact"),
+      ]}),
+      keyed("social-media", {title: "SOCIAL MEDIA", items: [
+        link("Custom Chat App Development Company", "/contact"),
+        link("Custom Dating App Development Company", "/contact"),
+        link("Custom Influencer App Development Company", "/contact"),
+        link("Social Media App Development Company", "/contact"),
+      ]}),
     ]}),
   ],
   footer: {
