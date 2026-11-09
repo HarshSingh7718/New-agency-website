@@ -182,10 +182,10 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
 .main-nav .has-children { position: relative; }
 .main-nav .has-children > a { display: inline-flex; align-items: center; gap: 7px; }
 .main-nav .has-children > a svg { transition: transform var(--dur) ease; }
-.main-nav .has-children:hover > a svg { transform: rotate(180deg); }
+.main-nav .has-children:hover > a svg, .main-nav .has-children.is-open > a svg { transform: rotate(180deg); }
 .main-nav .has-children > a::after { display: none; }
 
-.dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); margin-top: 16px; background: var(--c-white); border: 1px solid var(--c-line-2); border-radius: var(--r-card); padding: 12px; min-width: 320px; box-shadow: 0 20px 50px rgba(15, 23, 18, 0.1); opacity: 0; visibility: hidden; transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), visibility var(--dur); display: flex; flex-direction: column; gap: 2px; }
+.dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); margin-top: 16px; background: var(--c-white); border: 1px solid var(--c-line-2); border-radius: var(--r-card); padding: 12px; min-width: 320px; box-shadow: 0 20px 50px rgba(15, 23, 18, 0.1); opacity: 0; visibility: hidden; z-index: 100; transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), visibility var(--dur); display: flex; flex-direction: column; gap: 2px; }
 .main-nav .has-children:hover .dropdown, .main-nav .has-children.is-open .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 .dropdown a { display: flex; align-items: center; gap: 14px; padding: 12px; border-radius: 10px; color: var(--c-ink); }
 .dropdown a::after { display: none; }
@@ -211,12 +211,14 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
 
 .dropdown.mega.mega-industries {
   display: grid;
-  grid-template-columns: repeat(3, minmax(240px, 280px));
+  grid-template-columns: repeat(3, minmax(250px, 300px));
   column-gap: 36px;
   row-gap: 28px;
   padding: 30px 32px;
   width: max-content;
-  max-width: min(960px, calc(100vw - 40px));
+  max-width: min(980px, calc(100vw - 40px));
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
   left: auto;
   right: -180px;
   margin-left: 0;
@@ -226,9 +228,19 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
   border-radius: var(--r-card);
   box-shadow: 0 24px 60px rgba(26, 11, 46, 0.12), 0 4px 16px rgba(26, 11, 46, 0.04);
 }
+.dropdown.mega.mega-industries::-webkit-scrollbar {
+  width: 5px;
+}
+.dropdown.mega.mega-industries::-webkit-scrollbar-thumb {
+  background: var(--c-line-2);
+  border-radius: 4px;
+}
 .main-nav .has-children:hover .dropdown.mega.mega-industries,
 .main-nav .has-children.is-open .dropdown.mega.mega-industries {
-  transform: translateY(0);
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
 }
 .dropdown.mega.mega-industries .mega-col {
   min-width: 0;
@@ -247,9 +259,9 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
 }
 .dropdown.mega.mega-industries a {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 6px 10px;
-  gap: 8px;
+  gap: 10px;
   border-radius: 8px;
   color: var(--c-ink);
   transition: background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
@@ -259,9 +271,26 @@ iconify-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -
   color: var(--c-green-deep);
   transform: translateX(3px);
 }
+.dropdown.mega.mega-industries .ico {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 1px;
+  color: var(--c-green-link);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  transition: color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.dropdown.mega.mega-industries a:hover .ico {
+  color: var(--c-green-deep);
+  transform: scale(1.12);
+}
 .dropdown.mega.mega-industries .t {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 500;
   line-height: 1.45;
   color: inherit;

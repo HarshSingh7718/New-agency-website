@@ -13,11 +13,23 @@ export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 12);
     handleScroll();
     window.addEventListener("scroll", handleScroll, {passive: true});
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement)?.closest(".has-children")) {
+        setOpenDropdown(null);
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
   }, []);
 
   return (
@@ -45,17 +57,22 @@ export default function Header() {
             {settings.logo?.url && <Image className="brand-logo" src={settings.logo.url} alt={settings.logo.alt || settings.brandName} width={500} height={500} />}
           </Link>
           <nav className="main-nav" aria-label="Primary">
-            {settings.navigation.map((item) =>
-              item.groups?.length ? (
-                <div className="has-children" key={item._key || item.label}>
+            {settings.navigation.map((item) => {
+              const itemKey = item._key || item.label;
+              const isOpen = openDropdown === itemKey;
+              return item.groups?.length ? (
+                <div
+                  className={`has-children ${isOpen ? "is-open" : ""}`}
+                  key={itemKey}
+                >
                   <a
                     href={item.href}
                     className={pathname === item.href ? "is-active" : ""}
                     aria-haspopup="true"
+                    aria-expanded={isOpen}
                     onClick={(e) => {
-                      if (item.href?.startsWith("/#") || item.href === "#") {
-                        e.preventDefault();
-                      }
+                      e.preventDefault();
+                      setOpenDropdown((prev) => (prev === itemKey ? null : itemKey));
                     }}
                   >
                     {item.label}
@@ -72,7 +89,11 @@ export default function Header() {
                       <div className="mega-col" key={group._key || group.title}>
                         {group.title && <div className="mega-title">{group.title}</div>}
                         {group.items.map((link) => (
-                          <a href={link.href} key={link._key || link.label}>
+                          <a
+                            href={link.href}
+                            key={link._key || link.label}
+                            onClick={() => setOpenDropdown(null)}
+                          >
                             {link.icon && <span className="ico"><CmsIcon name={link.icon} /></span>}
                             <span className="t">{link.label}</span>
                           </a>
@@ -82,9 +103,9 @@ export default function Header() {
                   </div>
                 </div>
               ) : (
-                <a href={item.href} className={pathname === item.href ? "is-active" : ""} key={item._key || item.label}>{item.label}</a>
-              ),
-            )}
+                <a href={item.href} className={pathname === item.href ? "is-active" : ""} key={itemKey}>{item.label}</a>
+              );
+            })}
           </nav>
           <div className="header-actions">
             <a className="btn dark sm header-cta" href={settings.contact.whatsappUrl} data-magnetic>
